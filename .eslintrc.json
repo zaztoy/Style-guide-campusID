@@ -1,0 +1,84 @@
+{
+  "extends": "eslint:recommended",
+
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "prettier/prettier": ["error"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "no-duplicate-imports": 0,
+    "react/sort-comp": 0,
+    "react/prop-types": 0,
+    "react/default-props-match-prop-types": 0,
+    "react/no-did-mount-set-state": 0,
+    "max-len": [
+      "error",
+      100,
+      2,
+      {
+        "ignoreUrls": true,
+        "ignoreComments": true,
+        "ignoreRegExpLiterals": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*__test.+(js|jsx)",
+          "**/*.test.+(js|jsx)",
+          "./storybook/**",
+          "scripts"
+        ]
+      }
+    ],
+    "import/no-unresolved": {
+      "ignore": ["#src"]
+    },
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["to"]
+      }
+    ],
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "required": {
+          "every": ["nesting", "id"]
+        },
+        "allowChildren": true
+      }
+    ],
+    "react/destructuring-assignment": 0,
+    "react/require-default-props": [2, { "forbidDefaultForRequired": false }],
+    "import/prefer-default-export": 0,
+    "react/no-multi-comp": 0
+  },
+  "parser": "babel-eslint",
+  "globals": {
+    "window": true,
+    "document": true,
+    "WebSocket": true,
+    "process": true
+  },
+  "env": {
+    "jest": true
+  },
+  "plugins": ["flowtype", "prettier", "react-hooks"],
+  "settings": {
+    "react": {
+      "version": "16.6"
+    },
+    "import/ignore": ["#src"]
+  }
+}
