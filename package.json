@@ -20,11 +20,12 @@
   },
   "homepage": "https://github.com/zaztoy/storybook-campusid#readme",
   "dependencies": {
-    "@material-ui/core": "^4.5.1",
+    "@material-ui/core": "^4.6.0",
     "@storybook/addon-a11y": "^5.2.4",
     "@storybook/addon-docs": "^5.2.4",
     "@storybook/addon-knobs": "^5.2.4",
-    "@storybook/addon-storysource": "^5.2.4"
+    "@storybook/addon-storysource": "^5.2.4",
+    "react-jss": "^10.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",

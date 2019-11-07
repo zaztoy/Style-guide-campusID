@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
-import { action } from '@storybook/addon-actions'
-import { Button } from '@storybook/react/demo'
+import React from "react";
+import { createUseStyles } from "react-jss";
+
+import styles from "./style";
 
 const Emoji = () => {
-  return (
-    <Button onClick={action('clicked')}>
-      <span role="img" aria-label="so cool">
-        😀 😎 👍 💯
-      </span>
-    </Button>
-  )
-}
 
-export default Emoji
+  const useStyles = createUseStyles(styles);
+  const classes = useStyles();
+
+  return (
+    <span className={classes.test} role="img" aria-label="so cool">
+    ET ouiiiii !
+    </span>
+  );
+};
+
+export default Emoji;
