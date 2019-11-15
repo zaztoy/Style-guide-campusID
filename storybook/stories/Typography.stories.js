@@ -49,10 +49,15 @@ export const TypographyStory = () => {
       <Typography variant="body2" align={selectedAlign} color={selectedColor}>
         Body 2
       </Typography>
-
-      <Typography variant={select('variant', variants)} align={selectedAlign} color={selectedColor}>
-        {text('children', 'Commencez à écrire quelque chose !')}
-      </Typography>
+      <div style={{ marginTop: 20 }}>
+        <Typography
+          variant={select('variant', variants)}
+          align={selectedAlign}
+          color={selectedColor}
+        >
+          {text('children', 'Try me !')}
+        </Typography>
+      </div>
     </div>
   );
 };
