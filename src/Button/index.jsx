@@ -1,18 +1,12 @@
-import React from "react";
-import { createUseStyles } from "react-jss";
+import React from 'react';
+import Button from '@material-ui/core/Button';
 
-import styles from "./style";
-
-const Emoji = () => {
-
-  const useStyles = createUseStyles(styles);
-  const classes = useStyles();
-
+const SimpleButton = props => {
   return (
-    <span className={classes.test} role="img" aria-label="so cool">
-    ET ouiiiii !
-    </span>
+    <Button variant={props.variant} color={props.color} disabled={props.disable} size={props.size}>
+      {props.children}
+    </Button>
   );
 };
 
-export default Emoji;
+export default SimpleButton;
