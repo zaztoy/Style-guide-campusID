@@ -14,8 +14,8 @@ export const TypographyStory = () => {
 
   const colors = ['inherit', 'primary', 'secondary', 'textPrimary', 'textSecondary', 'error'];
 
-  const selectedAlign = select('align', aligns);
-  const selectedColor = select('color', colors);
+  const selectedAlign = select('align', aligns, 'selectedAlign');
+  const selectedColor = select('color', colors, 'selectedAlign');
 
   return (
     <div>
