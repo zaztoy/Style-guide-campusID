@@ -5,7 +5,18 @@ import TextField from '@material-ui/core/TextField';
 
 import styles from "./style";
 
-const mailInput = props => {
+
+type Props = {
+  onChange: (value: string, isValid: boolean) => any,
+  onError: (value: string) => any,
+  onSuccess: (value: string) => any,
+  placeholder: string,
+  label: string,
+  style: string,
+  debounceTime: number
+}
+
+function mailInput(props: Props) {
 
   const useStyles = createUseStyles(styles);
   const classes = useStyles();
@@ -43,7 +54,7 @@ const mailInput = props => {
     let isError = !verifRegex.test(value);
 
     if(isError) {
-      isError(value);
+      onError(value);
     } else if (value >= ""){
       onSuccess(value);
     }
@@ -56,7 +67,7 @@ const mailInput = props => {
     setHelperText(isError ? defaultErrorText : '');
   };
 
-  const debounce = fn => {
+  function debounce (fn: (ev: any) => any) {
     let _interval;
 
     return ev => {
@@ -73,7 +84,7 @@ const mailInput = props => {
     };
   };
 
-  let field = (
+  const field = (
     <TextField
       classes={{
         root: classes[style]
