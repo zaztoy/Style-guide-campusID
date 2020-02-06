@@ -6,7 +6,7 @@ export default {
     flexDirection: 'column',
     backgroundColor: `${globals.backgroundColor.darkTheme} !important`,
     color: `${globals.color.darkTheme} !important`,
-    width: '30%',
+    width: '50%',
     alignItems: 'center',
   },
 
@@ -15,7 +15,7 @@ export default {
     flexDirection: 'column',
     backgroundColor: `${globals.backgroundColor.mediumTheme} !important`,
     color: `${globals.color.mediumTheme} !important`,
-    width: '30%',
+    width: '50%',
     alignItems: 'center',
   },
 
@@ -24,20 +24,19 @@ export default {
     flexDirection: 'column',
     backgroundColor: `${globals.backgroundColor.lightTheme} !important`,
     color: `${globals.color.lightTheme} !important`,
-    width: '30%',
+    width: '50%',
     alignItems: 'center',
-  },
-
-  imgContainer: {
-    width: '60%',
-    display: 'flex',
-    justifyContent: 'center',
   },
 
   hrStyle: {
     color: `${globals.primary} !important`,
     height: '0.5px',
     width: '80% !important',
+  },
+
+  containerText: {
+    padding: '20px',
+    textAlign: 'center',
   },
 
   btn: {

@@ -11,35 +11,27 @@ type Props = {
   title: string;
   style: string;
   text: string;
-  image: string;
 };
 
-export default function ImageCard(props: Props) {
+export default function SimpleCard(props: Props) {
   const useStyles = createUseStyles(styles);
   const classes: Record<string, string> = useStyles();
+
+  const { title, text = '', style = 'darkTheme' } = props;
 
   const handleClick = () => {
     alert('Button clicked ! :D');
   };
-
-  const { image, title, text = '', style = 'darkTheme' } = props;
 
   return (
     <Card classes={{ root: classes[style] }}>
       <CardContent>
         <Typography variant="h3">{title}</Typography>
       </CardContent>
-
-      <div className={classes.imgContainer}>
-        <img src={image}></img>
-      </div>
-
       <hr className={classes.hrStyle} />
-
-      <span>{text}</span>
-
+      <div className={classes.containerText}>{text}</div>
       <CardActions>
-        <Button classes={{ text: classes.btn }} size="small" onClick={handleClick}>
+        <Button classes={{ root: classes.btn }} size="small" onClick={handleClick}>
           Click here
         </Button>
       </CardActions>
