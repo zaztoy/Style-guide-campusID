@@ -5,8 +5,9 @@ const jssGlobals = {};
 jssGlobals.font = '"Roboto", "Helvetica", "Arial", sans-serif';
 jssGlobals.pageBackground = '#f5f5f3';
 jssGlobals.linkColor = '#0096d8';
-jssGlobals.primary = 'red'; //To be changed
-
+jssGlobals.primary = '#C11712';
+jssGlobals.dark = '#404040';
+jssGlobals.light = '#FFFAFA';
 jssGlobals.backgroundColor = {
   darkTheme: '#404040',
   mediumTheme: '#D3D3D3',
