@@ -1,9 +1,24 @@
+import { jss } from 'react-jss';
+
 const jssGlobals = {};
 
 jssGlobals.font = '"Roboto", "Helvetica", "Arial", sans-serif';
 jssGlobals.pageBackground = '#f5f5f3';
 jssGlobals.linkColor = '#0096d8';
 jssGlobals.primary = 'red'; //To be changed
+
+jssGlobals.backgroundColor = {
+  darkTheme: '#404040',
+  mediumTheme: '#D3D3D3',
+  lightTheme: '#F5F5F5',
+  pageBackground: '#f5f5f3',
+};
+
+jssGlobals.color = {
+  darkTheme: '#DCDCDC',
+  mediumTheme: '#404040',
+  lightTheme: '#909090',
+};
 
 jssGlobals.breakpoints = {
   values: {
@@ -14,6 +29,7 @@ jssGlobals.breakpoints = {
     xl: 1920,
   },
 };
+6;
 
 jssGlobals.breakpoints.media = {
   xsMax: `@media (max-width: ${jssGlobals.breakpoints.values.xs - 1}px)`,
@@ -31,10 +47,10 @@ jssGlobals.breakpoints.media = {
 jssGlobals.spacing = {
   xs: 4,
   sm: 8,
-  md: 16,
-  lg: 24,
-  xl: 32,
-  xxl: 40,
+  md: 12,
+  lg: 16,
+  xl: 24,
+  xxl: 32,
 };
 
 //
