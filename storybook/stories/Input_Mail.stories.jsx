@@ -8,7 +8,11 @@ export default {
   decorator: [withKnobs]
 };
 
+
+
 export const AllPropsMailInput = () => {
+
+  const styles = ['darkTheme', 'mediumTheme', 'lightTheme'];
 
   const onChange = (inputValue, isValid) => {
     // Do some stuff here
@@ -22,9 +26,8 @@ export const AllPropsMailInput = () => {
     // Do some stuff here
   };
 
-  const styles = ['darkTheme', 'mediumTheme', 'lightTheme'];
-
-  return <MailInput
+  return (
+    <MailInput
       onChange={onChange}
       onSuccess={onSuccess}
       onError={onError}
@@ -33,5 +36,6 @@ export const AllPropsMailInput = () => {
       placeholder={text('placeholder', 'This is a placeholder')}
       debounceTime={number('Debounce time', 500)}
     />
+  )
   
 };

@@ -7,16 +7,16 @@ import styles from "./style";
 
 
 type Props = {
-  onChange: (value: string, isValid: boolean) => any,
-  onError: (value: string) => any,
-  onSuccess: (value: string) => any,
-  placeholder: string,
-  label: string,
-  style: string,
-  debounceTime: number
+  onChange?: (value: string, isValid: boolean) => any,
+  onError?: (value: string) => any,
+  onSuccess?: (value: string) => any,
+  placeholder?: string,
+  label?: string,
+  style?: string,
+  debounceTime?: number
 }
 
-function mailInput(props: Props) {
+const mailInput = (props: Props) => {
 
   const useStyles = createUseStyles(styles);
   const classes = useStyles();
@@ -67,7 +67,7 @@ function mailInput(props: Props) {
     setHelperText(isError ? defaultErrorText : '');
   };
 
-  function debounce (fn: (ev: any) => any) {
+  const debounce =  (fn: (ev: any) => any) => {
     let _interval;
 
     return ev => {
