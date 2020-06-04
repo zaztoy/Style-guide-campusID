@@ -21,21 +21,12 @@ const mailInput = (props: Props) => {
   const useStyles = createUseStyles(styles);
   const classes = useStyles();
 
-
   const verifRegex = /^[a-zA-Z0-9]+?(\.[a-zA-Z0-9]+?)?@[a-zA-Z0-9]+?\.[a-zA-Z0-9]+?$/;
 
   const defaultErrorText = 'Adresse mail invalide';
 
   const [err, setErr] = useState(false);
   const [helperText, setHelperText] = useState('');
-
-  // Default debounce time set to 250ms
-  let debounceTime = 250;
-
-  if(typeof props.debounceTime !== 'undefined'
-    && props.debounceTime >= 0) {
-      debounceTime = props.debounceTime;
-  }
 
 
   // Get the style from the props
@@ -44,7 +35,9 @@ const mailInput = (props: Props) => {
     label = 'Mail', 
     placeholder = 'Entrez votre adresse mail',
     onError = () => {},
-    onSuccess = () => {}
+    onSuccess = () => {},
+    onChange = () => {},
+    debounceTime = 250
   } = props;
 
   const onInternalChange = ev => {
@@ -59,10 +52,8 @@ const mailInput = (props: Props) => {
       onSuccess(value);
     }
 
-    if(typeof props.onChange === 'function') {
-      props.onChange(value, !isError);
-    }
-
+    onChange(value, !isError);
+    
     setErr(isError);
     setHelperText(isError ? defaultErrorText : '');
   };
