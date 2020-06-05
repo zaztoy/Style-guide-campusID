@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { createUseStyles } from 'react-jss';
 
-import {Input, InputLabel} from '@material-ui/core';
+import {Input, InputLabel, FormHelperText} from '@material-ui/core';
 
 import styles from "./style";
 
 type Props = {
+    onChange?: (value: string, isValid: boolean) => any,
+    onError?: (value: string) => any,
+    onSuccess?: (value: string) => any,
     lowerBound?: number,
     upperBound?: number,
     isInteger?: boolean,
@@ -17,6 +20,9 @@ type Props = {
 
 const numberInput = (props: Props) => {
     const {
+        onError = () => {},
+        onSuccess = () => {},
+        onChange = () => {},
         lowerBound,
         upperBound,
         isInteger = false,
@@ -32,7 +38,7 @@ const numberInput = (props: Props) => {
     const [ inputValue, setInputValue ] = useState("");
     const [ isValid, setIsValid ] = useState(true);
 
-    const onChange = (evt) => {
+    const onInternalChange = (evt) => {
         let newVal = evt.target.value;
 
         let isValid = true;
@@ -51,10 +57,33 @@ const numberInput = (props: Props) => {
             newVal = Math.floor(newVal)
         }
 
+        if(!isValid) {
+            onError(newVal);
+        } else {
+            onSuccess(newVal);
+        }
+        onChange(newVal, isValid);
+        
         setInputValue(newVal)
         setIsValid(isValid)
-        
     } 
+
+    const debounce =  (fn: (ev: any) => any) => {
+        let _timeout;
+    
+        return ev => {
+          if (_timeout !== null) {
+            clearTimeout(_timeout);
+          }
+    
+          ev.persist();
+    
+          _timeout = setTimeout(() => {
+            clearTimeout(_timeout);
+            fn(ev);
+          }, 500);
+        };
+      };
 
     return (
         <div>
@@ -72,10 +101,13 @@ const numberInput = (props: Props) => {
                 id={id}
                 type="number"
                 error={!isValid}
-                onChange={onChange}
+                onChange={debounce(onInternalChange)}
                 placeholder={placeholder}
                 value={inputValue}
             />
+            {
+                isValid? '': <FormHelperText style={{color: 'red'}}>La valeur saisie doit être entre {lowerBound} et {upperBound}.</FormHelperText>
+            }
         </div>
         
     )
