@@ -1,5 +1,3 @@
-import { jss } from 'react-jss';
-
 const jssGlobals = {};
 
 jssGlobals.font = '"Roboto", "Helvetica", "Arial", sans-serif';

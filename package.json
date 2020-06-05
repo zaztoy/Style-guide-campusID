@@ -21,6 +21,7 @@
   "homepage": "https://github.com/zaztoy/storybook-campusid#readme",
   "dependencies": {
     "@material-ui/core": "^4.6.0",
+    "@material-ui/icons": "^4.9.1",
     "@material-ui/pickers": "^3.2.7",
     "@storybook/addon-a11y": "^5.2.4",
     "@storybook/addon-docs": "^5.2.4",
@@ -32,6 +33,7 @@
     "jest": "^24.9.0",
     "moment": "^2.24.0",
     "react-docgen-typescript-loader": "^3.6.0",
+    "react-easy-crop": "^3.0.1",
     "react-jss": "^10.0.0",
     "ts-jest": "^24.3.0",
     "typescript": "^3.7.4"
