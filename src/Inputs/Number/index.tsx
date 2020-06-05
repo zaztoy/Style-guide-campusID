@@ -39,6 +39,7 @@ const numberInput = (props: Props) => {
     const [ isValid, setIsValid ] = useState(true);
 
     const onInternalChange = (evt) => {
+
         let newVal = evt.target.value;
 
         let isValid = true;
@@ -53,10 +54,10 @@ const numberInput = (props: Props) => {
             isValid = false;
         }
 
-        if(isInteger) {
-            newVal = Math.floor(newVal)
+        if(isInteger && parseInt(newVal)) {
+            newVal = Math.trunc(newVal)
         }
-
+        
         if(!isValid) {
             onError(newVal);
         } else {
@@ -68,22 +69,6 @@ const numberInput = (props: Props) => {
         setIsValid(isValid)
     } 
 
-    const debounce =  (fn: (ev: any) => any) => {
-        let _timeout;
-    
-        return ev => {
-          if (_timeout !== null) {
-            clearTimeout(_timeout);
-          }
-    
-          ev.persist();
-    
-          _timeout = setTimeout(() => {
-            clearTimeout(_timeout);
-            fn(ev);
-          }, 500);
-        };
-      };
 
     return (
         <div>
@@ -101,7 +86,7 @@ const numberInput = (props: Props) => {
                 id={id}
                 type="number"
                 error={!isValid}
-                onChange={debounce(onInternalChange)}
+                onChange={onInternalChange}
                 placeholder={placeholder}
                 value={inputValue}
             />
