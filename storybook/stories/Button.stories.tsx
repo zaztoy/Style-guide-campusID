@@ -16,7 +16,7 @@ export default {
 export const simpleButton = () => {
 
   const variants = ['contained', 'outlined', 'text'];
-  const colors = ['primary', 'secondary'];
+  const colors = ['primary', 'secondary', 'lightTheme', 'mediumTheme', 'darkPrimary'];
   const disable = [true, false];
   const disableRipple = [true, false];
   const sizes = ['small', 'medium', 'large'];
