@@ -1,15 +1,18 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
-import { createUseStyles } from 'react-jss';
 import moment from 'moment';
-
 import styles from './style';
+import { createUseStyles } from 'react-jss';
+import TextField from '@material-ui/core/TextField';
 
-const DatePicker = props => {
-  const today = moment().format('YYYY-MM-DD');
+type Props = {
+  label: string;
+  style: string;
+};
+
+const DatePicker = (props: Props) => {
+  const today: string = moment().format('YYYY-MM-DD');
   const useStyles = createUseStyles(styles);
-  const classes = useStyles();
-
+  const classes: Record<string, string> = useStyles();
   const { label, style = 'darkTheme' } = props;
 
   return (
