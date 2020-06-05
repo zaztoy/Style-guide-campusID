@@ -1,72 +1,103 @@
 import React from 'react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
-import Button from '@material-ui/core/Button';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import SimpleButton from '../../src/Buttons/Button';
 import GroupButton from '../../src/Buttons/GroupButton';
 
 export default {
   title: 'Buttons',
-  decorators: [withKnobs]
+  decorators: [withKnobs],
 };
-
 
 /**
  * Simple button
  */
 export const simpleButton = () => {
-
   const variants = ['contained', 'outlined', 'text'];
-  const colors = ['primary', 'secondary', 'lightTheme', 'mediumTheme', 'darkPrimary'];
-  const disable = [true, false];
-  const disableRipple = [true, false];
+  const colors = ['lightTheme', 'mediumTheme', 'darkTheme'];
   const sizes = ['small', 'medium', 'large'];
 
   const selectedVariant = select('Variant', variants, 'outlined');
-  const selectedColor = select('Color', colors, 'primary');
-  const selectedDisable = select('Disable', disable, false);
-  const selectedDisableRippel = select('DisableRipple', disableRipple, false);
+  const selectedColor = select('Color', colors, 'darkTheme');
+  const selectedDisable = boolean('Disable', false);
+  const selectedDisableRippel = boolean('DisableRipple', false);
   const selectedSize = select('Size', sizes, 'small');
 
   const onClickButton = () => {
-    console.log("I'm a button !!")
-  }
+    alert("I'm a button !!");
+  };
 
-  return <SimpleButton
-    variant={selectedVariant}
-    color={selectedColor}
-    disable={selectedDisable}
-    size={selectedSize}
-    disableRipple={selectedDisableRippel}
-    onClick={onClickButton}>
-    {text('Text', 'Simple Button')}
-  </SimpleButton>;
+  return (
+    <SimpleButton
+      variant={selectedVariant}
+      style={selectedColor}
+      disable={selectedDisable}
+      size={selectedSize}
+      disableRipple={selectedDisableRippel}
+      onClick={onClickButton}
+    >
+      {text('Text', 'Simple Button')}
+    </SimpleButton>
+  );
 };
-
 
 /**
  * Group button
  */
 export const groupButton = () => {
   const variants = ['contained', 'outlined', 'text'];
-  const colors = ['primary', 'secondary'];
+  const colors = ['lightTheme', 'mediumTheme', 'darkTheme'];
   const sizes = ['small', 'medium', 'large'];
-  const disable = [true, false];
   const orientations = ['vertical', 'horizontal'];
 
   const selectedVariant = select('Variant', variants, 'outlined');
-  const selectedColor = select('Color', colors, 'primary');
   const selectedSize = select('Size', sizes, 'small');
-  const selectedDisable = select('Disable', disable, false);
+  const selectedDisable = boolean('Disable', false);
   const selectedOrientation = select('Orientation', orientations, 'horizontal');
+  const selectedColor = select('Color', colors, 'darkTheme');
+  const selectedDisableRippel = boolean('DisableRipple', false);
 
-  return <GroupButton
-    variant={selectedVariant}
-    color={selectedColor}
-    size={selectedSize}
-    disable={selectedDisable}
-    orientation={selectedOrientation}>
-    <Button>{text('Text', 'One')}</Button>
-    <Button>{text('Text 2', 'Two')}</Button>
-    <Button>{text('Text 3', 'Three')}</Button>
-  </GroupButton>
-}
+  const onClickButton = () => {
+    alert("I'm a button !!");
+  };
+
+  return (
+    <GroupButton
+      variant={selectedVariant}
+      color={selectedColor}
+      size={selectedSize}
+      disable={selectedDisable}
+      orientation={selectedOrientation}
+    >
+      <SimpleButton
+        variant={selectedVariant}
+        style={selectedColor}
+        disable={selectedDisable}
+        size={selectedSize}
+        disableRipple={selectedDisableRippel}
+        onClick={onClickButton}
+      >
+        {text('Text', 'One')}
+      </SimpleButton>
+      <SimpleButton
+        variant={selectedVariant}
+        style={selectedColor}
+        disable={selectedDisable}
+        size={selectedSize}
+        disableRipple={selectedDisableRippel}
+        onClick={onClickButton}
+      >
+        {text('Text 2', 'Two')}
+      </SimpleButton>
+      <SimpleButton
+        variant={selectedVariant}
+        style={selectedColor}
+        disable={selectedDisable}
+        size={selectedSize}
+        disableRipple={selectedDisableRippel}
+        onClick={onClickButton}
+      >
+        {text('Text 3', 'Three')}
+      </SimpleButton>
+    </GroupButton>
+  );
+};
