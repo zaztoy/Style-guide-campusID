@@ -6,15 +6,13 @@ import GroupButton from '../../src/Buttons/GroupButton';
 
 export default {
   title: 'Buttons',
-  decorators: [withKnobs]
+  decorators: [withKnobs],
 };
-
 
 /**
  * Simple button
  */
 export const simpleButton = () => {
-
   const variants = ['contained', 'outlined', 'text'];
   const colors = ['primary', 'secondary'];
   const disable = [true, false];
@@ -28,20 +26,22 @@ export const simpleButton = () => {
   const selectedSize = select('Size', sizes, 'small');
 
   const onClickButton = () => {
-    console.log("I'm a button !!")
-  }
+    console.log("I'm a button !!");
+  };
 
-  return <SimpleButton
-    variant={selectedVariant}
-    color={selectedColor}
-    disable={selectedDisable}
-    size={selectedSize}
-    disableRipple={selectedDisableRippel}
-    onClick={onClickButton}>
-    {text('Text', 'Simple Button')}
-  </SimpleButton>;
+  return (
+    <SimpleButton
+      variant={selectedVariant}
+      color={selectedColor}
+      disable={selectedDisable}
+      size={selectedSize}
+      disableRipple={selectedDisableRippel}
+      onClick={onClickButton}
+    >
+      {text('Text', 'Simple Button')}
+    </SimpleButton>
+  );
 };
-
 
 /**
  * Group button
@@ -59,14 +59,17 @@ export const groupButton = () => {
   const selectedDisable = select('Disable', disable, false);
   const selectedOrientation = select('Orientation', orientations, 'horizontal');
 
-  return <GroupButton
-    variant={selectedVariant}
-    color={selectedColor}
-    size={selectedSize}
-    disable={selectedDisable}
-    orientation={selectedOrientation}>
-    <Button>{text('Text', 'One')}</Button>
-    <Button>{text('Text 2', 'Two')}</Button>
-    <Button>{text('Text 3', 'Three')}</Button>
-  </GroupButton>
-}
+  return (
+    <GroupButton
+      variant={selectedVariant}
+      color={selectedColor}
+      size={selectedSize}
+      disable={selectedDisable}
+      orientation={selectedOrientation}
+    >
+      <Button>{text('Text', 'One')}</Button>
+      <Button>{text('Text 2', 'Two')}</Button>
+      <Button>{text('Text 3', 'Three')}</Button>
+    </GroupButton>
+  );
+};
