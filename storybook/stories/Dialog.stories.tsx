@@ -18,7 +18,11 @@ export const dialog = () => {
     <Dialog
       title={text('Title', 'CampusID')}
       customStyle={select('style', customStyle, 'darkTheme')}
-      text={text('Text', 'You can put some text if you need')}
+      buttonOpen={text("Bouton d'ouverture", 'Ouvrir modal')}
+      text1={text('Texte 1', 'You can put some text if you need')}
+      text2={text('Texte 2', 'You can put some text if you need')}
+      text3={text('Texte 3', 'You can put some text if you need')}
+      buttonText={text('Bouton Texte', 'Close')}
       onClose={onClose}
     />
   );

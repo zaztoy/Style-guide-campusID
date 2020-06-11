@@ -15,7 +15,11 @@ import {
 
 type Props = {
   title: string;
-  text: string;
+  buttonText: string;
+  buttonOpen: string;
+  text1: string;
+  text2: string;
+  text3: string;
   customStyle: string;
   onClose: () => void;
 };
@@ -24,7 +28,16 @@ export default function CustomDialog(props: Props) {
   const useStyles = createUseStyles(styles);
   const classes: Record<string, string> = useStyles();
 
-  const { title, text = '', customStyle = 'darkTheme', onClose } = props;
+  const {
+    title,
+    buttonOpen = 'Open dialog',
+    buttonText = 'Save',
+    text1,
+    text2,
+    text3,
+    customStyle = 'darkTheme',
+    onClose,
+  } = props;
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -36,8 +49,8 @@ export default function CustomDialog(props: Props) {
 
   return (
     <div>
-      <Button classes={{ text: classes.btn }} onClick={handleClickOpen}>
-        Open dialog
+      <Button classes={{ root: classes.btn }} onClick={handleClickOpen}>
+        {buttonOpen}
       </Button>
       <Dialog
         classes={{ root: classes[customStyle] }}
@@ -54,23 +67,13 @@ export default function CustomDialog(props: Props) {
           ) : null}
         </DialogTitle>
         <DialogContent dividers>
-          <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-            in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-          </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-            lacus vel augue laoreet rutrum faucibus dolor auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
-            scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
-            auctor fringilla.
-          </Typography>
+          <Typography gutterBottom>{text1}</Typography>
+          <Typography gutterBottom>{text2}</Typography>
+          <Typography gutterBottom>{text3}</Typography>
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose} color="primary">
-            Save changes
+            {buttonText}
           </Button>
         </DialogActions>
       </Dialog>
