@@ -36,7 +36,7 @@ export default function SelectedListItem(props: Props) {
 
   return (
     <div>
-      <List component="nav" aria-label="main mailbox folders" classes={{ root: classes[style1] }}>
+      <List component="nav" classes={{ root: classes[style1] }}>
         <ListItem
           button
           selected={selectedIndex === 0}
@@ -59,11 +59,7 @@ export default function SelectedListItem(props: Props) {
         </ListItem>
       </List>
       <Divider />
-      <List
-        component="nav"
-        aria-label="secondary mailbox folder"
-        classes={{ root: classes[style2] }}
-      >
+      <List component="nav" classes={{ root: classes[style2] }}>
         <ListItem
           button
           selected={selectedIndex === 2}
