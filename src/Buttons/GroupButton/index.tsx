@@ -1,11 +1,11 @@
 // @ts-ignore
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { createUseStyles } from 'react-jss';
 import styles from './style';
 
-const SimpleButton = props => {
-  const { children, variant, disable, disableRipple, size, onClick } = props;
+const GroupButton = props => {
+  const { children, variant, size, disable, onClick } = props;
   const useStyles = createUseStyles(styles);
   const classes: Record<string, string> = useStyles();
   let { style = 'darkTheme' } = props;
@@ -16,17 +16,16 @@ const SimpleButton = props => {
     + (disable? 'Disable' : 'NotDisable')
 
   return (
-    <Button
+    <ButtonGroup
       classes={{ root: classes[style] }}
       variant={variant}
       disabled={disable}
       size={size}
-      disableRipple={disableRipple}
       onClick={onClick}
     >
       {children}
-    </Button>
+    </ButtonGroup>
   );
 };
 
-export default SimpleButton;
+export default GroupButton;
