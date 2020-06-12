@@ -33,6 +33,7 @@
     "jest": "^24.9.0",
     "moment": "^2.24.0",
     "react-docgen-typescript-loader": "^3.6.0",
+    "react-easy-crop": "^3.0.1",
     "react-jss": "^10.0.0",
     "ts-jest": "^24.3.0",
     "typescript": "^3.7.4"
