@@ -12,7 +12,7 @@ type Props = {
   open: boolean;
   onClose?: () => void;
   message: React.ReactNode | string;
-  theme: 'lightTheme' | 'mediumTheme' | 'darkTheme';
+  theme?: 'lightTheme' | 'mediumTheme' | 'darkTheme';
   action?: () => void;
   autoHideDuration?: 1000 | 2000 | 3000 | 4000 | 5000;
   showCloseButton: boolean;

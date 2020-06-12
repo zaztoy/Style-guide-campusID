@@ -8,7 +8,7 @@ export default {
 };
 
 export const dialog = () => {
-  const customStyle = ['darkTheme', 'mediumTheme', 'lightTheme'];
+  const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
 
   const onClose = () => {
     alert('Clooose');
@@ -17,7 +17,7 @@ export const dialog = () => {
   return (
     <Dialog
       title={text('Title', 'CampusID')}
-      customStyle={select('style', customStyle, 'darkTheme')}
+      theme={theme}
       buttonOpen={text("Bouton d'ouverture", 'Ouvrir modal')}
       text1={text('Texte 1', 'You can put some text if you need')}
       text2={text('Texte 2', 'You can put some text if you need')}

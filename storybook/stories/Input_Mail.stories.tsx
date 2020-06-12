@@ -5,24 +5,21 @@ import { withKnobs, text, select, number } from '@storybook/addon-knobs';
 import MailInput from '../../src/Inputs/Mail';
 export default {
   title: 'Mail Inputs',
-  decorator: [withKnobs]
+  decorator: [withKnobs],
 };
 
-
-
 export const AllPropsMailInput = () => {
-
-  const styles = ['darkTheme', 'mediumTheme', 'lightTheme'];
+  const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
 
   const onChange = (inputValue, isValid) => {
     // Do some stuff here
   };
 
-  const onSuccess = (inputValue) => {
+  const onSuccess = inputValue => {
     // Do some stuff here
   };
 
-  const onError = (inputValue) => {
+  const onError = inputValue => {
     // Do some stuff here
   };
 
@@ -31,11 +28,10 @@ export const AllPropsMailInput = () => {
       onChange={onChange}
       onSuccess={onSuccess}
       onError={onError}
-      style={select('style', styles)}
+      theme={theme}
       label={text('label', 'This is a label')}
       placeholder={text('placeholder', 'This is a placeholder')}
       debounceTime={number('Debounce time', 500)}
     />
-  )
-  
+  );
 };

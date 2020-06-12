@@ -1,4 +1,6 @@
-const jssGlobals = {};
+type jssGlobals = any;
+
+const jssGlobals: jssGlobals = {};
 
 jssGlobals.font = '"Roboto", "Helvetica", "Arial", sans-serif';
 jssGlobals.pageBackground = '#f5f5f3';

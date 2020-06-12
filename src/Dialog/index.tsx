@@ -1,7 +1,7 @@
 import React from 'react';
 import CloseIcon from '@material-ui/icons/Close';
 import { createUseStyles } from 'react-jss';
-import styles from './style.js';
+import styles from './style';
 
 import {
   Dialog,
@@ -20,8 +20,8 @@ type Props = {
   text1: string;
   text2: string;
   text3: string;
-  customStyle: string;
   onClose: () => void;
+  theme?: 'darkTheme' | 'mediumTheme' | 'lightTheme';
 };
 
 export default function CustomDialog(props: Props) {
@@ -35,7 +35,7 @@ export default function CustomDialog(props: Props) {
     text1,
     text2,
     text3,
-    customStyle = 'darkTheme',
+    theme = 'darkTheme',
     onClose,
   } = props;
   const [open, setOpen] = React.useState(false);
@@ -53,7 +53,7 @@ export default function CustomDialog(props: Props) {
         {buttonOpen}
       </Button>
       <Dialog
-        classes={{ root: classes[customStyle] }}
+        classes={{ root: classes[theme] }}
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}

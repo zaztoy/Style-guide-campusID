@@ -5,6 +5,32 @@ export default createUseStyles({
   root: {
     color: `${globals.primary} !important`,
     height: '8px !important',
+    darkTheme: {
+      backgroundColor: `${globals.backgroundColor.darkTheme} !important`,
+      color: `${globals.primary} !important`,
+      fontWeight: `600 !important`,
+      '& .MuiSnackbarContent-message': {
+        width: '100%',
+      },
+    },
+
+    mediumTheme: {
+      backgroundColor: `${globals.backgroundColor.mediumTheme} !important`,
+      color: `${globals.color.mediumTheme} !important`,
+      fontWeight: `600 !important`,
+      '& .MuiSnackbarContent-message': {
+        width: '100%',
+      },
+    },
+
+    lightTheme: {
+      backgroundColor: `${globals.backgroundColor.lightTheme} !important`,
+      color: `${globals.color.lightTheme} !important`,
+      fontWeight: `600 !important`,
+      '& .MuiSnackbarContent-message': {
+        width: '100%',
+      },
+    },
   },
   thumb: {
     height: '24px !important',

@@ -10,10 +10,11 @@ type Props = {
   min?: number;
   max?: number;
   withValue?: boolean;
+  theme?: 'darkTheme' | 'mediumTheme' | 'lightTheme';
 };
 
 const Slidebar = (props: Props) => {
-  const { withValue, min, max, onChange, value, ...rest } = props;
+  const { withValue, min, max, onChange, value, theme = 'darkTheme', ...rest } = props;
   const classes = styles();
 
   return (
@@ -21,7 +22,7 @@ const Slidebar = (props: Props) => {
       <div className={classes.container}>
         <Slider
           classes={{
-            root: classes.root,
+            root: classes.root[theme],
             thumb: classes.thumb,
             valueLabel: classes.valueLabel,
             track: classes.track,

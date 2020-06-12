@@ -9,7 +9,7 @@ export default {
 };
 
 export const datePicker = () => {
-  const styles = ['darkTheme', 'mediumTheme', 'lightTheme'];
+  const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
 
-  return <DatePicker label={text('label', 'birthday')} style={select('style', styles)} />;
+  return <DatePicker label={text('label', 'birthday')} theme={theme} />;
 };

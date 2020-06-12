@@ -9,7 +9,7 @@ export default {
 };
 
 export const imageCard = () => {
-  const styles = ['darkTheme', 'mediumTheme', 'lightTheme'];
+  const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
 
   return (
     <ImageCard
@@ -18,19 +18,19 @@ export const imageCard = () => {
         'http://www.campusid.fr/wp-content/uploads/2018/02/logo-carre-2.png'
       )}
       title={text('Title', 'CampusID')}
-      style={select('style', styles)}
+      theme={theme}
       text={text('Text', 'You can put some text if you need')}
     />
   );
 };
 
 export const simpleCard = () => {
-  const styles = ['darkTheme', 'mediumTheme', 'lightTheme'];
+  const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
 
   return (
     <SimpleCard
       title={text('Title', 'CampusID')}
-      style={select('style', styles)}
+      theme={theme}
       text={text(
         'Text',
         'Oui alors écoute moi, premièrement, il faut se recréer... pour recréer... a better you et cette officialité peut vraiment retarder ce qui devrait devenir... Et là, vraiment, j essaie de tout coeur de donner la plus belle réponse de la terre ! '

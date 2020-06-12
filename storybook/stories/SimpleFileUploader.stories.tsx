@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import Avatar from '../../src/Avatar';
-import InputFile from '../../src/InputFile';
+import InputFile from '../../src/Inputs/InputFile';
 
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 
 export default {
   title: 'Simple File-Uploader',

@@ -6,18 +6,18 @@ import TextField from '@material-ui/core/TextField';
 
 type Props = {
   label: string;
-  style: string;
+  theme?: 'darkTheme' | 'mediumTheme' | 'lightTheme';
 };
 
 const DatePicker = (props: Props) => {
   const today: string = moment().format('YYYY-MM-DD');
   const useStyles = createUseStyles(styles);
   const classes: Record<string, string> = useStyles();
-  const { label, style = 'darkTheme' } = props;
+  const { label, theme = 'darkTheme' } = props;
 
   return (
     <TextField
-      classes={{ root: classes[style] }}
+      classes={{ root: classes[theme] }}
       id="date-picker-dialog"
       label={label}
       type="date"

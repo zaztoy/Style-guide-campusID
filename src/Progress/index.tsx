@@ -6,8 +6,8 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import styles from './style';
 
 type Props = {
-  progressType: string;
-  progressColor: 'primary' | 'secondary';
+  progressType: 'circular' | 'linear';
+  progressColor?: 'primary' | 'light' | 'dark';
   variant?: any;
   className?: Record<string, string>;
   otherProps?: {};
