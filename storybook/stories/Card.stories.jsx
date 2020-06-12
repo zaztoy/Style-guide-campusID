@@ -4,32 +4,9 @@ import SimpleCard from '../../src/Card/SimpleCard';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import Table from '../../src/Table/index';
 
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  Props,
-  Stories,
-} from '@storybook/addon-docs/blocks';
-
 export default {
   title: 'Cards Docs',
   decorators: [withKnobs],
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <Props />
-          <Stories />
-        </>
-      ),
-    },
-  },
 };
 
 export const imageCard = () => {
@@ -49,10 +26,10 @@ export const imageCard = () => {
 };
 
 const rows = [
-  ['Image', 'string'],
-  ['Title', 'string'],
-  ['Style', 'Enum : darkTheme, mediumTheme, lightTheme'],
-  ['Text', 'string'],
+  ['image', 'string'],
+  ['title', 'string'],
+  ['style', 'Enum : darkTheme, mediumTheme, lightTheme'],
+  ['text', 'string'],
 ];
 const headers = ['PROPS', 'TYPE'];
 const align = 'left';
@@ -80,9 +57,9 @@ export const simpleCard = () => {
 };
 
 const rows2 = [
-  ['Title', 'string'],
-  ['Style', 'Enum : darkTheme, mediumTheme, lightTheme'],
-  ['Text', 'string'],
+  ['title', 'string'],
+  ['style', 'Enum : darkTheme, mediumTheme, lightTheme'],
+  ['text', 'string'],
 ];
 
 export const simpleCardProps = () => (

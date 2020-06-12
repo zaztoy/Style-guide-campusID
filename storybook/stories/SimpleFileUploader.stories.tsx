@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Avatar from '../../src/Avatar';
 import InputFile from '../../src/InputFile';
-
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
+import Table from '../../src/Table/index';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
+import jssGlobals from '../../src/Theme/jssGlobals';
 
 export default {
   title: 'Simple File-Uploader',
@@ -15,7 +15,6 @@ export const FileUploaderStory = () => {
   const imageUpload = boolean('Image', false);
   const setFileData = (fileData: any) => {
     setFile(fileData);
-    console.log(fileData);
   };
 
   return imageUpload ? (
@@ -23,11 +22,11 @@ export const FileUploaderStory = () => {
       <InputFile setFileData={setFileData} image>
         <span
           style={{
-            backgroundColor: 'red',
+            backgroundColor: jssGlobals.backgroundColor.darkTheme,
             fontSize: '1.25em',
             fontWeight: 700,
-            color: 'white',
-            padding: 20,
+            color: jssGlobals.color.darkTheme,
+            padding: 8,
             borderRadius: 4,
           }}
         >
@@ -41,12 +40,11 @@ export const FileUploaderStory = () => {
       <InputFile setFileData={setFileData}>
         <span
           style={{
-            backgroundColor: 'red',
+            backgroundColor: jssGlobals.backgroundColor.darkTheme,
             fontSize: '1.25em',
             fontWeight: 700,
-            color: 'white',
-            display: 'inline-block',
-            padding: 20,
+            color: jssGlobals.color.darkTheme,
+            padding: 8,
             borderRadius: 4,
           }}
         >
@@ -63,3 +61,19 @@ export const FileUploaderStory = () => {
     </>
   );
 };
+
+const rows = [
+  ['setFileData', 'function'],
+  ['image', 'boolean'],
+  ['src', 'fileData'],
+];
+
+const headers = ['PROPS', 'TYPE'];
+const align = 'left';
+const style = 'lightTheme';
+
+export const fileUploaderStoryProps = () => (
+  <>
+    <Table rows={rows} headers={headers} align={align} style={style} />
+  </>
+);
