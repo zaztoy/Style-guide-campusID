@@ -58,7 +58,7 @@ export default function SelectedListItem(props: Props) {
           <ListItemText primary={title2} />
         </ListItem>
       </List>
-      <Divider />
+
       <List component="nav" classes={{ root: classes[style2] }}>
         <ListItem
           button
