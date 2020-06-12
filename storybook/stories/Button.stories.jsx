@@ -8,15 +8,16 @@ export default {
   decorators: [withKnobs],
 };
 
+//region Simple button
 /**
  * Simple button
  */
 export const simpleButton = () => {
   const variants = ['contained', 'outlined', 'text'];
-  const colors = ['lightTheme', 'mediumTheme', 'darkTheme'];
+  const colors = ['darkTheme','mediumTheme', 'lightTheme'];
   const sizes = ['small', 'medium', 'large'];
 
-  const selectedVariant = select('Variant', variants, 'outlined');
+  const selectedVariant = select('Variant', variants, 'contained');
   const selectedColor = select('Color', colors, 'darkTheme');
   const selectedDisable = boolean('Disable', false);
   const selectedDisableRippel = boolean('DisableRipple', false);
@@ -39,7 +40,9 @@ export const simpleButton = () => {
     </SimpleButton>
   );
 };
+//endregion
 
+//region GroupButton
 /**
  * Group button
  */
@@ -47,12 +50,10 @@ export const groupButton = () => {
   const variants = ['contained', 'outlined', 'text'];
   const colors = ['lightTheme', 'mediumTheme', 'darkTheme'];
   const sizes = ['small', 'medium', 'large'];
-  const orientations = ['vertical', 'horizontal'];
 
   const selectedVariant = select('Variant', variants, 'outlined');
   const selectedSize = select('Size', sizes, 'small');
   const selectedDisable = boolean('Disable', false);
-  const selectedOrientation = select('Orientation', orientations, 'horizontal');
   const selectedColor = select('Color', colors, 'darkTheme');
   const selectedDisableRippel = boolean('DisableRipple', false);
 
@@ -66,7 +67,6 @@ export const groupButton = () => {
       color={selectedColor}
       size={selectedSize}
       disable={selectedDisable}
-      orientation={selectedOrientation}
     >
       <SimpleButton
         variant={selectedVariant}
@@ -101,3 +101,4 @@ export const groupButton = () => {
     </GroupButton>
   );
 };
+//endregion
