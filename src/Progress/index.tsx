@@ -7,14 +7,14 @@ import styles from './style';
 
 type Props = {
   progressType: 'circular' | 'linear';
-  progressColor?: 'primary' | 'light' | 'dark';
+  progressColor?: 'darkTheme' | 'lightTheme' | 'mediumTheme';
   variant?: any;
   className?: Record<string, string>;
   otherProps?: {};
 };
 
 const Progress = (props: Props) => {
-  const { progressType, progressColor = 'primary', variant } = props;
+  const { progressType, progressColor = 'darkTheme', variant } = props;
   const linearStyle = createUseStyles(styles.linear);
   const circularStyle = createUseStyles(styles.circular);
   const linearClasses = linearStyle();

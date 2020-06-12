@@ -15,15 +15,15 @@ type Props = {
   title2: string;
   title3: string;
   title4: string;
-  style1: string;
-  style2: string;
+  theme1: 'darkTheme' | 'mediumTheme' | 'lightTheme';
+  theme2: 'darkTheme' | 'mediumTheme' | 'lightTheme';
 };
 
 export default function SelectedListItem(props: Props) {
   const useStyles = createUseStyles(styles);
   const classes: Record<string, string> = useStyles();
 
-  const { title1, title2, title3, title4, style1 = 'darkTheme', style2 = 'lightTheme' } = props;
+  const { title1, title2, title3, title4, theme1 = 'darkTheme', theme2 = 'lightTheme' } = props;
 
   const [selectedIndex, setSelectedIndex] = React.useState(1);
 

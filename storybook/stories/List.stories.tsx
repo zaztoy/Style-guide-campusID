@@ -8,13 +8,13 @@ export default {
 };
 
 export const list = () => {
-  const styles1 = ['darkTheme', 'mediumTheme', 'lightTheme'];
-  const styles2 = ['darkTheme', 'mediumTheme', 'lightTheme'];
+  const theme1 = select('style1', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
+  const theme2 = select('style2', ['darkTheme', 'mediumTheme', 'lightTheme'], 'lightTheme');
 
   return (
     <List
-      style1={select('style1', styles1)}
-      style2={select('style2', styles2)}
+      theme1={theme1}
+      theme2={theme2}
       title1={text('Text1', 'CampusIDOnline')}
       title2={text('Text2', 'Règlages')}
       title3={text('Text3', 'Notes')}

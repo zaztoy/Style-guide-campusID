@@ -6,22 +6,26 @@ export default {
   title: 'Progress',
   decorators: [withKnobs],
 };
-const styles = ['primary', 'dark', 'light'];
-const linearVariant = ['determinate', 'indeterminate', 'buffer', 'query'];
+const linearVariant = select(
+  'variant',
+  ['determinate', 'indeterminate', 'buffer', 'query'],
+  'determinate'
+);
+const progressColor = select(
+  'ProgressColor',
+  ['darkTheme', 'mediumTheme', 'lightTheme'],
+  'darkTheme'
+);
 export const CircularProgress = () => (
   <div>
-    <Progress progressColor={select('Color', styles)} progressType="circular" />
+    <Progress progressColor={progressColor} progressType="circular" />
   </div>
 );
 
 export const LinearProgress = () => {
   return (
     <div>
-      <Progress
-        progressType="linear"
-        progressColor={select('color', styles)}
-        variant={select('Variant', linearVariant)}
-      />
+      <Progress progressType="linear" progressColor={progressColor} variant={linearVariant} />
     </div>
   );
 };

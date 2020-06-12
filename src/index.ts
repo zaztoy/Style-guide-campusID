@@ -1,7 +1,8 @@
 export * from '@material-ui/core';
 
 export { default as Avatar } from './Avatar';
-export { default as Button } from './Button';
+export { default as Button } from './Buttons/Button';
+export { default as GroupButton } from './Buttons/GroupButton';
 export { default as SimpleCard } from './Card/SimpleCard';
 export { default as ImageCard } from './Card/ImageCard';
 export { default as DatePicker } from './DatePicker';
