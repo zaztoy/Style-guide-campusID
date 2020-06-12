@@ -2,6 +2,7 @@ import React from 'react';
 import ImageCard from '../../src/Card/ImageCard';
 import SimpleCard from '../../src/Card/SimpleCard';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
+import Table from '../../src/Table/index';
 
 import {
   Title,
@@ -13,7 +14,7 @@ import {
 } from '@storybook/addon-docs/blocks';
 
 export default {
-  title: 'Card',
+  title: 'Cards Docs',
   decorators: [withKnobs],
   parameters: {
     docs: {
@@ -31,33 +32,6 @@ export default {
   },
 };
 
-export const defDocsPage = () => (
-  <>
-    <div>Une CARD est un composant qui sert à afficher des informations.</div>
-    <hr />
-    <br />
-    <h2> Composant 'Image Card' : </h2>
-    <h4>PROPS</h4>
-    <ul>
-      <li>
-        Title : <i>string</i>
-      </li>
-      <li>
-        Style : <i>Enum ['darkTheme', 'mediumTheme', 'lightTheme']</i>
-      </li>
-      <li>
-        Title : <i>string</i>
-      </li>
-      <li>
-        Text : <i>string</i>
-      </li>
-      <li>
-        Image : <i>string</i>
-      </li>
-    </ul>
-  </>
-);
-
 export const imageCard = () => {
   const styles = ['darkTheme', 'mediumTheme', 'lightTheme'];
 
@@ -74,6 +48,22 @@ export const imageCard = () => {
   );
 };
 
+const rows = [
+  ['Image', 'string'],
+  ['Title', 'string'],
+  ['Style', 'Enum : darkTheme, mediumTheme, lightTheme'],
+  ['Text', 'string'],
+];
+const headers = ['PROPS', 'TYPE'];
+const align = 'left';
+const style = 'lightTheme';
+
+export const imageCardProps = () => (
+  <>
+    <Table rows={rows} headers={headers} align={align} style={style} />
+  </>
+);
+
 export const simpleCard = () => {
   const styles = ['darkTheme', 'mediumTheme', 'lightTheme'];
 
@@ -88,3 +78,15 @@ export const simpleCard = () => {
     />
   );
 };
+
+const rows2 = [
+  ['Title', 'string'],
+  ['Style', 'Enum : darkTheme, mediumTheme, lightTheme'],
+  ['Text', 'string'],
+];
+
+export const simpleCardProps = () => (
+  <>
+    <Table rows={rows2} headers={headers} align={align} style={style} />
+  </>
+);
