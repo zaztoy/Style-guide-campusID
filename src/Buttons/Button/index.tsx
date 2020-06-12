@@ -9,14 +9,14 @@ type Props = {
   theme?: 'darkTheme' | 'mediumTheme' | 'lightTheme';
   children: React.ReactNode;
   variant: 'text' | 'outlined' | 'contained';
-  disable: boolean;
+  disabled: boolean;
   disableRipple: boolean;
   size: 'small' | 'medium' | 'large';
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 const SimpleButton = (props: Props) => {
-  const { children, variant, disable, disableRipple, size, onClick } = props;
+  const { children, variant, disabled, disableRipple, size, onClick } = props;
   const useStyles = createUseStyles(styles);
   const classes: Record<string, string> = useStyles();
   const { theme = 'darkTheme' } = props;
@@ -29,11 +29,11 @@ const SimpleButton = (props: Props) => {
             theme +
               variant.charAt(0).toUpperCase() +
               variant.slice(1) +
-              (disable ? 'Disable' : 'NotDisable')
+              (disabled ? 'Disable' : 'NotDisable')
           ],
       }}
       variant={variant}
-      disabled={disable}
+      disabled={disabled}
       size={size}
       disableRipple={disableRipple}
       onClick={onClick}

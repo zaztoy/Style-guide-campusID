@@ -1,12 +1,10 @@
 import React from 'react';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import CastForEducationIcon from '@material-ui/icons/CastForEducation';
 import SettingsIcon from '@material-ui/icons/Settings';
-import Divider from '@material-ui/core/Divider';
 import { createUseStyles } from 'react-jss';
 import styles from './style';
 
@@ -36,7 +34,7 @@ export default function SelectedListItem(props: Props) {
 
   return (
     <div>
-      <List component="nav" classes={{ root: classes[style1] }}>
+      <List component="nav" classes={{ root: classes[theme1] }}>
         <ListItem
           button
           selected={selectedIndex === 0}
@@ -59,7 +57,7 @@ export default function SelectedListItem(props: Props) {
         </ListItem>
       </List>
 
-      <List component="nav" classes={{ root: classes[style2] }}>
+      <List component="nav" classes={{ root: classes[theme2] }}>
         <ListItem
           button
           selected={selectedIndex === 2}

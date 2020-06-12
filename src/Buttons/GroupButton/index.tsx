@@ -7,13 +7,13 @@ type Props = {
   theme?: 'darkTheme' | 'mediumTheme' | 'lightTheme';
   children: React.ReactNode;
   variant: 'text' | 'outlined' | 'contained';
-  disable: boolean;
+  disabled: boolean;
   size: 'small' | 'medium' | 'large';
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 const GroupButton = (props: Props) => {
-  const { children, variant, size, disable, onClick } = props;
+  const { children, variant, size, disabled, onClick } = props;
   const useStyles = createUseStyles(styles);
   const classes: Record<string, string> = useStyles();
   const { theme = 'darkTheme' } = props;
@@ -26,11 +26,11 @@ const GroupButton = (props: Props) => {
             theme +
               variant.charAt(0).toUpperCase() +
               variant.slice(1) +
-              (disable ? 'Disable' : 'NotDisable')
+              (disabled ? 'Disable' : 'NotDisable')
           ],
       }}
       variant={variant}
-      disabled={disable}
+      disabled={disabled}
       size={size}
       onClick={onClick}
     >

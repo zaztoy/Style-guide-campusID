@@ -9,28 +9,25 @@ export default {
 };
 
 export const simpleButton = () => {
-  const variants = ['contained', 'outlined', 'text'];
-  const colors = ['darkTheme', 'mediumTheme', 'lightTheme'];
-  const sizes = ['small', 'medium', 'large'];
+  const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
+  const size = select('Size', ['small', 'medium', 'large'], 'medium');
 
-  const selectedVariant = select('Variant', variants, 'contained');
-  const selectedColor = select('Color', colors, 'darkTheme');
-  const selectedDisable = boolean('Disable', false);
-  const selectedDisableRippel = boolean('DisableRipple', false);
-  const selectedSize = select('Size', sizes, 'small');
+  const variant = select('Variant', ['contained', 'outlined', 'text'], 'contained');
+  const disabled = boolean('Disabled', false);
+  const disableRipple = boolean('DisableRipple', false);
 
-  const onClickButton = () => {
+  const onClick = () => {
     alert("I'm a button !!");
   };
 
   return (
     <SimpleButton
-      variant={selectedVariant}
-      theme={selectedColor}
-      disable={selectedDisable}
-      size={selectedSize}
-      disableRipple={selectedDisableRippel}
-      onClick={onClickButton}
+      variant={variant}
+      theme={theme}
+      disabled={disabled}
+      size={size}
+      disableRipple={disableRipple}
+      onClick={onClick}
     >
       {text('Text', 'Simple Button')}
     </SimpleButton>
@@ -38,54 +35,45 @@ export const simpleButton = () => {
 };
 
 export const groupButton = () => {
-  const variants = ['contained', 'outlined', 'text'];
-  const colors = ['lightTheme', 'mediumTheme', 'darkTheme'];
-  const sizes = ['small', 'medium', 'large'];
+  const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
+  const size = select('Size', ['small', 'medium', 'large'], 'medium');
+  const variant = select('Variant', ['contained', 'outlined', 'text'], 'contained');
+  const disabled = boolean('Disabled', false);
+  const disableRipple = boolean('DisableRipple', false);
 
-  const selectedVariant = select('Variant', variants, 'outlined');
-  const selectedSize = select('Size', sizes, 'small');
-  const selectedDisable = boolean('Disable', false);
-  const selectedColor = select('Color', colors, 'darkTheme');
-  const selectedDisableRippel = boolean('DisableRipple', false);
-
-  const onClickButton = () => {
+  const onClick = () => {
     alert("I'm a button !!");
   };
 
   return (
-    <GroupButton
-      variant={selectedVariant}
-      color={selectedColor}
-      size={selectedSize}
-      disable={selectedDisable}
-    >
+    <GroupButton variant={variant} theme={theme} size={size} disabled={disabled}>
       <SimpleButton
-        variant={selectedVariant}
-        theme={selectedColor}
-        disable={selectedDisable}
-        size={selectedSize}
-        disableRipple={selectedDisableRippel}
-        onClick={onClickButton}
+        variant={variant}
+        theme={theme}
+        disabled={disabled}
+        size={size}
+        disableRipple={disableRipple}
+        onClick={onClick}
       >
         {text('Text', 'One')}
       </SimpleButton>
       <SimpleButton
-        variant={selectedVariant}
-        theme={selectedColor}
-        disable={selectedDisable}
-        size={selectedSize}
-        disableRipple={selectedDisableRippel}
-        onClick={onClickButton}
+        variant={variant}
+        theme={theme}
+        disabled={disabled}
+        size={size}
+        disableRipple={disableRipple}
+        onClick={onClick}
       >
         {text('Text 2', 'Two')}
       </SimpleButton>
       <SimpleButton
-        variant={selectedVariant}
-        theme={selectedColor}
-        disable={selectedDisable}
-        size={selectedSize}
-        disableRipple={selectedDisableRippel}
-        onClick={onClickButton}
+        variant={variant}
+        theme={theme}
+        disabled={disabled}
+        size={size}
+        disableRipple={disableRipple}
+        onClick={onClick}
       >
         {text('Text 3', 'Three')}
       </SimpleButton>
