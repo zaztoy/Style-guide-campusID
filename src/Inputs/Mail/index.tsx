@@ -59,17 +59,17 @@ const mailInput = (props: Props) => {
   };
 
   const debounce =  (fn: (ev: any) => any) => {
-    let _interval;
+    let _timeout;
 
     return ev => {
-      if (_interval !== null) {
-        clearInterval(_interval);
+      if (_timeout !== null) {
+        clearTimeout(_timeout);
       }
 
       ev.persist();
 
-      _interval = setInterval(() => {
-        clearInterval(_interval);
+      _timeout = setTimeout(() => {
+        clearTimeout(_timeout);
         fn(ev);
       }, debounceTime);
     };
