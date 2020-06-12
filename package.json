@@ -30,6 +30,8 @@
     "@storybook/addon-storysource": "^5.2.4",
     "@types/jest": "^24.0.25",
     "awesome-typescript-loader": "^5.2.1",
+    "babel-preset-react-app": "^9.1.2",
+    "classnames": "^2.2.6",
     "jest": "^24.9.0",
     "moment": "^2.24.0",
     "react-docgen-typescript-loader": "^3.6.0",
