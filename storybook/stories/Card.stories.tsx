@@ -2,9 +2,10 @@ import React from 'react';
 import ImageCard from '../../src/Card/ImageCard';
 import SimpleCard from '../../src/Card/SimpleCard';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
+import Table from '../../src/Table/index';
 
 export default {
-  title: 'Card',
+  title: 'Cards Docs',
   decorators: [withKnobs],
 };
 
@@ -24,6 +25,22 @@ export const imageCard = () => {
   );
 };
 
+const rows = [
+  ['image', 'string'],
+  ['title', 'string'],
+  ['style', 'Enum : darkTheme, mediumTheme, lightTheme'],
+  ['text', 'string'],
+];
+const headers = ['PROPS', 'TYPE'];
+const align = 'left';
+const theme = 'lightTheme';
+
+export const imageCardProps = () => (
+  <>
+    <Table rows={rows} headers={headers} align={align} theme={style} />
+  </>
+);
+
 export const simpleCard = () => {
   const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
 
@@ -38,3 +55,15 @@ export const simpleCard = () => {
     />
   );
 };
+
+const rows2 = [
+  ['title', 'string'],
+  ['theme', 'Enum : darkTheme, mediumTheme, lightTheme'],
+  ['text', 'string'],
+];
+
+export const simpleCardProps = () => (
+  <>
+    <Table rows={rows2} headers={headers} align={align} theme={theme} />
+  </>
+);

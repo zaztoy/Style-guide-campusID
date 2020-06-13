@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import InputFile from '../../src/Inputs/InputFile';
-
 import { withKnobs, boolean } from '@storybook/addon-knobs';
+
+import InputFile from '../../src/Inputs/InputFile';
+import Table from '../../src/Table/index';
+import jssGlobals from '../../src/Theme/jssGlobals';
 
 export default {
   title: 'Simple File-Uploader',
@@ -14,7 +16,6 @@ export const FileUploaderStory = () => {
   const imageUpload = boolean('Image', false);
   const setFileData = (fileData: any) => {
     setFile(fileData);
-    console.log(fileData);
   };
 
   return imageUpload ? (
@@ -22,11 +23,11 @@ export const FileUploaderStory = () => {
       <InputFile setFileData={setFileData} image>
         <span
           style={{
-            backgroundColor: 'red',
+            backgroundColor: jssGlobals.backgroundColor.darkTheme,
             fontSize: '1.25em',
             fontWeight: 700,
-            color: 'white',
-            padding: 20,
+            color: jssGlobals.color.darkTheme,
+            padding: 8,
             borderRadius: 4,
           }}
         >
@@ -40,12 +41,11 @@ export const FileUploaderStory = () => {
       <InputFile setFileData={setFileData}>
         <span
           style={{
-            backgroundColor: 'red',
+            backgroundColor: jssGlobals.backgroundColor.darkTheme,
             fontSize: '1.25em',
             fontWeight: 700,
-            color: 'white',
-            display: 'inline-block',
-            padding: 20,
+            color: jssGlobals.color.darkTheme,
+            padding: 8,
             borderRadius: 4,
           }}
         >
@@ -62,3 +62,17 @@ export const FileUploaderStory = () => {
     </>
   );
 };
+
+const rows = [
+  ['setFileData', 'function'],
+  ['image', 'boolean'],
+  ['src', 'fileData'],
+];
+
+const headers = ['PROPS', 'TYPE'];
+
+export const fileUploaderStoryProps = () => (
+  <>
+    <Table rows={rows} headers={headers} align="left" theme="lightTheme" />
+  </>
+);

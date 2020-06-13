@@ -1,6 +1,7 @@
 import React from 'react';
 import Dialog from '../../src/Dialog';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
+import Table from '../../src/Table/index';
 
 export default {
   title: 'Dialog',
@@ -27,3 +28,24 @@ export const dialog = () => {
     />
   );
 };
+
+const rows = [
+  ['title', 'string'],
+  ['customStyle', 'Enum : darkTheme, mediumTheme, lightTheme'],
+  ['buttonOpen', 'string'],
+  ['buttonText', 'string'],
+  ['text1', 'string'],
+  ['text2', 'string'],
+  ['text3', 'string'],
+  ['onClose', 'function'],
+];
+
+const headers = ['PROPS', 'TYPE'];
+const align = 'left';
+const style = 'lightTheme';
+
+export const dialogProps = () => (
+  <>
+    <Table rows={rows} headers={headers} align={align} style={style} />
+  </>
+);
