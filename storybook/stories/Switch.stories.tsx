@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 import Switch from '../../src/Switch';
 
 export default {

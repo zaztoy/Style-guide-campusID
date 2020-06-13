@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Avatar from '../../src/Avatar';
-import InputFile from '../../src/InputFile';
 
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 

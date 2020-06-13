@@ -8,14 +8,22 @@ export default {
 };
 
 export const TypographyStory = () => {
-  const variants = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'subtitle1', 'subtitle2', 'body1', 'body2'];
+  const variants = select(
+    'variant',
+    ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'subtitle1', 'subtitle2', 'body1', 'body2'],
+    'h1'
+  );
 
-  const aligns = ['inherit', 'left', 'center', 'right', 'justify'];
-
-  const colors = ['inherit', 'primary', 'secondary', 'textPrimary', 'textSecondary', 'error'];
-
-  const selectedAlign = select('align', aligns, 'selectedAlign');
-  const selectedColor = select('color', colors, 'selectedAlign');
+  const selectedAlign = select(
+    'align',
+    ['inherit', 'left', 'center', 'right', 'justify'],
+    'inherit'
+  );
+  const selectedColor = select(
+    'color',
+    ['inherit', 'primary', 'secondary', 'textPrimary', 'textSecondary', 'error'],
+    'primary'
+  );
 
   return (
     <div>
@@ -50,11 +58,7 @@ export const TypographyStory = () => {
         Body 2
       </Typography>
       <div style={{ marginTop: 20 }}>
-        <Typography
-          variant={select('variant', variants)}
-          align={selectedAlign}
-          color={selectedColor}
-        >
+        <Typography variant={variants} align={selectedAlign} color={selectedColor}>
           {text('children', 'Try me !')}
         </Typography>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Slider from '../../src/Slider';
 
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, select } from '@storybook/addon-knobs';
 
 export default {
   title: 'Slider',

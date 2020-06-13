@@ -8,25 +8,13 @@ import { withKnobs, text, select, number, boolean } from '@storybook/addon-knobs
 storiesOf('Inputs', module)
   .addDecorator(withKnobs)
   .add('Number Input', () => {
-    const onChange = (inputValue, isValid) => {
-      // Do some stuff here
-    };
-
-    const onSuccess = inputValue => {
-      // Do some stuff here
-    };
-
-    const onError = inputValue => {
-      // Do some stuff here
-    };
-
     const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
 
     return (
       <NumberInput
-        onChange={onChange}
-        onSuccess={onSuccess}
-        onError={onError}
+        onChange={() => alert('Changed')}
+        onSuccess={() => alert('Success')}
+        onError={() => alert('Error')}
         theme={theme}
         label={text('label', 'This is a label')}
         placeholder={text('placeholder', 'This is a placeholder')}
@@ -34,25 +22,13 @@ storiesOf('Inputs', module)
     );
   })
   .add('Bounded Number Input', () => {
-    const onChange = (inputValue, isValid) => {
-      // Do some stuff here
-    };
-
-    const onSuccess = inputValue => {
-      // Do some stuff here
-    };
-
-    const onError = inputValue => {
-      // Do some stuff here
-    };
-
     const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
 
     return (
       <NumberInput
-        onChange={onChange}
-        onSuccess={onSuccess}
-        onError={onError}
+        onChange={() => alert('Changed')}
+        onSuccess={() => alert('Success')}
+        onError={() => alert('Error')}
         theme={theme}
         label={text('label', 'This is a label')}
         placeholder={text('placeholder', 'This is a placeholder')}
@@ -62,25 +38,13 @@ storiesOf('Inputs', module)
     );
   })
   .add('Integer Number Input', () => {
-    const onChange = (inputValue, isValid) => {
-      // Do some stuff here
-    };
-
-    const onSuccess = inputValue => {
-      // Do some stuff here
-    };
-
-    const onError = inputValue => {
-      // Do some stuff here
-    };
-
     const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
 
     return (
       <NumberInput
-        onChange={onChange}
-        onSuccess={onSuccess}
-        onError={onError}
+        onChange={() => alert('Changed')}
+        onSuccess={() => alert('Success')}
+        onError={() => alert('Error')}
         theme={theme}
         label={text('label', 'This is a label')}
         placeholder={text('placeholder', 'This is a placeholder')}
@@ -89,25 +53,13 @@ storiesOf('Inputs', module)
     );
   })
   .add('Mail Input', () => {
-    const onChange = (inputValue, isValid) => {
-      // Do some stuff here
-    };
-
-    const onSuccess = inputValue => {
-      // Do some stuff here
-    };
-
-    const onError = inputValue => {
-      // Do some stuff here
-    };
-
     const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
 
     return (
       <MailInput
-        onChange={onChange}
-        onSuccess={onSuccess}
-        onError={onError}
+        onChange={() => alert('Changed')}
+        onSuccess={() => alert('Success')}
+        onError={() => alert('Error')}
         theme={theme}
         label={text('label', 'This is a label')}
         placeholder={text('placeholder', 'This is a placeholder')}
