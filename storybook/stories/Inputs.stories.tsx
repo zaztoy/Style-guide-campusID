@@ -13,9 +13,9 @@ storiesOf('Inputs', module)
 
     return (
       <NumberInput
-        onChange={() => alert('Changed')}
-        onSuccess={() => alert('Success')}
-        onError={() => alert('Error')}
+        onChange={() => console.log('Changed')}
+        onSuccess={() => console.log('Success')}
+        onError={() => console.log('Error')}
         theme={theme}
         label={text('label', 'This is a label')}
         placeholder={text('placeholder', 'This is a placeholder')}
@@ -27,9 +27,9 @@ storiesOf('Inputs', module)
 
     return (
       <NumberInput
-        onChange={() => alert('Changed')}
-        onSuccess={() => alert('Success')}
-        onError={() => alert('Error')}
+        onChange={() => console.log('Changed')}
+        onSuccess={() => console.log('Success')}
+        onError={() => console.log('Error')}
         theme={theme}
         label={text('label', 'This is a label')}
         placeholder={text('placeholder', 'This is a placeholder')}
@@ -43,9 +43,9 @@ storiesOf('Inputs', module)
 
     return (
       <NumberInput
-        onChange={() => alert('Changed')}
-        onSuccess={() => alert('Success')}
-        onError={() => alert('Error')}
+        onChange={() => console.log('Changed')}
+        onSuccess={() => console.log('Success')}
+        onError={() => console.log('Error')}
         theme={theme}
         label={text('label', 'This is a label')}
         placeholder={text('placeholder', 'This is a placeholder')}
@@ -58,9 +58,9 @@ storiesOf('Inputs', module)
 
     return (
       <MailInput
-        onChange={() => alert('Changed')}
-        onSuccess={() => alert('Success')}
-        onError={() => alert('Error')}
+        onChange={() => console.log('Changed')}
+        onSuccess={() => console.log('Success')}
+        onError={() => console.log('Error')}
         theme={theme}
         label={text('label', 'This is a label')}
         placeholder={text('placeholder', 'This is a placeholder')}
