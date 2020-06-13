@@ -69,5 +69,4 @@ export default {
   lightThemeTextNotDisable: {
     color: `${globals.backgroundColor.darkTheme} !important`
   }
-
-};
+}

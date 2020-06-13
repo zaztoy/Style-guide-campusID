@@ -1,4 +1,5 @@
 import globals from '../Theme/jssGlobals';
+
 export default {
   circular: {
     primary: {
