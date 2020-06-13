@@ -37,7 +37,7 @@ const MailInput = (props: Props) => {
     debounceTime = 250,
   } = props;
 
-  const onInternalChange = ev => {
+  const onInternalChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
     let value = ev.target.value;
 
     let isError = !verifRegex.test(value);
@@ -54,10 +54,10 @@ const MailInput = (props: Props) => {
     setHelperText(isError ? defaultErrorText : '');
   };
 
-  const debounce = (fn: (ev: any) => any) => {
-    let _timeout;
+  const debounce = (fn: (ev: React.SyntheticEvent) => any) => {
+    let _timeout: any;
 
-    return ev => {
+    return (ev: React.SyntheticEvent) => {
       if (_timeout !== null) {
         clearTimeout(_timeout);
       }

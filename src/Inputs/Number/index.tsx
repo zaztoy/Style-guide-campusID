@@ -38,8 +38,8 @@ const NumberInput = (props: Props) => {
   const [inputValue, setInputValue] = useState('');
   const [isValid, setIsValid] = useState(true);
 
-  const onInternalChange = event => {
-    let newVal = event.target.value;
+  const onInternalChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let newVal = Number(event.target.value);
 
     let isValid = true;
 
@@ -51,18 +51,18 @@ const NumberInput = (props: Props) => {
       isValid = false;
     }
 
-    if (isInteger && parseInt(newVal)) {
+    if (isInteger && newVal) {
       newVal = Math.trunc(newVal);
     }
 
     if (!isValid) {
-      onError(newVal);
+      onError(newVal.toString());
     } else {
-      onSuccess(newVal);
+      onSuccess(newVal.toString());
     }
-    onChange(newVal, isValid);
+    onChange(newVal.toString(), isValid);
 
-    setInputValue(newVal);
+    setInputValue(newVal.toString());
     setIsValid(isValid);
   };
 

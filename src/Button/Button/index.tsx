@@ -1,21 +1,32 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import { createUseStyles } from 'react-jss';
+import styles from './style';
+type Props = {
+  children: React.ReactNode;
+  variant: 'text' | 'outlined' | 'contained';
+  theme: 'lightTheme' | 'mediumTheme' | 'darkTheme';
+  color: any;
+  disabled: boolean;
+  disableRipple: boolean;
+  size: 'small' | 'medium' | 'large';
+  onClick: () => void;
+};
 
-const SimpleButton = props => {
-  const { children, variant, color, disable, disableRipple, size, onClick } = props;
-  const useStyles = createUseStyles(color);
-  const classes: Record<string, string> = useStyles();
+const SimpleButton = (props: Props) => {
+  const { children, variant, theme, disabled, disableRipple, size, onClick, color } = props;
+
+  const classes: Record<string, string> = styles();
 
   return (
     <Button
-      classes={{ root: classes[color] }}
+      classes={{ root: classes[theme] }}
       variant={variant}
-      disabled={disable}
+      disabled={disabled}
       size={size}
       color={color}
       disableRipple={disableRipple}
-      onClick={onClick}>
+      onClick={onClick}
+    >
       {children}
     </Button>
   );

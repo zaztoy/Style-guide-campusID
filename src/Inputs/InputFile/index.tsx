@@ -14,7 +14,7 @@ const InputFile = ({ children, setFileData, isImage }: Props) => {
   const readFile = (file: Blob): Promise<string> => {
     return new Promise(resolve => {
       const reader = new FileReader();
-      reader.addEventListener('load', () => resolve(reader.result.toString()), false);
+      reader.addEventListener('load', () => resolve(reader?.result?.toString()), false);
       reader.readAsDataURL(file);
     });
   };
@@ -40,7 +40,7 @@ const InputFile = ({ children, setFileData, isImage }: Props) => {
       {children}
       <input
         id="avatar-file"
-        accept={isImage ? 'image/png, image/jpeg, image/jpg' : null}
+        accept={isImage ? 'image/png, image/jpeg, image/jpg' : ''}
         data-testid="avatar-input-file"
         name="avatar"
         type="file"
