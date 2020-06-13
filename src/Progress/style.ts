@@ -2,26 +2,26 @@ import globals from '../Theme/jssGlobals';
 
 export default {
   circular: {
-    primary: {
-      color: globals.primary,
+    mediumTheme: {
+      color: globals.color.mediumTheme,
     },
-    light: {
-      color: globals.light,
+    lightTheme: {
+      color: globals.color.lightTheme,
     },
-    dark: {
-      color: globals.dark,
+    darkTheme: {
+      color: globals.color.darkTheme,
     },
   },
 
   linear: {
-    primary: {
-      backgroundColor: `${globals.primary} !important`,
+    mediumTheme: {
+      backgroundColor: `${globals.backgroundColor.mediumTheme} !important`,
     },
-    light: {
-      backgroundColor: `${globals.light} !important`,
+    lightTheme: {
+      backgroundColor: `${globals.backgroundColor.lightTheme} !important`,
     },
-    dark: {
-      backgroundColor: `${globals.dark} !important`,
+    darkTheme: {
+      backgroundColor: `${globals.backgroundColor.darkTheme} !important`,
     },
   },
 };

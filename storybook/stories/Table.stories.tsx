@@ -3,9 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, select } from '@storybook/addon-knobs';
 import Table from '../../src/Table';
 
-const styles = ['darkTheme', 'mediumTheme', 'lightTheme'];
-const alignPossibilities = ['left', 'right'];
-
 storiesOf('Table', module)
   .addDecorator(withKnobs)
   .add('Rows From Array', () => {
@@ -18,41 +15,27 @@ storiesOf('Table', module)
       ['Roux', 'Nicolas', 'Irlandais', 'Français'],
     ];
 
-    const rowsDoc = [
-      ['row', 'string[][]'],
-      ['headersDoc', 'string[]'],
-      ['style', 'Enum : darkTheme, mediumTheme, lightTheme'],
-      ['align', 'Enum : right, left'],
-    ];
-
-    const headersDoc = ['PROPS', 'TYPE'];
-    const align = 'left';
-    const style = 'lightTheme';
-
     return (
       <Table
         rows={rows}
         headers={headers}
-        style={select('Style', styles)}
-        align={select('Alignement des cellules', alignPossibilities)}
+        theme={select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme')}
+        align={select('Alignement des cellules', ['left', 'right'], 'left')}
       />
     );
   })
   .add('Table Props', () => {
     const rowsDoc = [
-      ['row', 'string[][]'],
-      ['headersDoc', 'string[]'],
-      ['style', 'Enum : darkTheme, mediumTheme, lightTheme'],
-      ['align', 'Enum : right, left'],
+      ['row:', 'string[][]'],
+      ['headersDoc:', 'string[]'],
+      ['theme:', 'darkTheme | mediumTheme | lightTheme'],
+      ['align:', 'right | left'],
     ];
 
     const headersDoc = ['PROPS', 'TYPE'];
-    const align = 'left';
-    const style = 'lightTheme';
-
     return (
       <>
-        <Table rows={rowsDoc} headers={headersDoc} align={align} style={style} />
+        <Table rows={rowsDoc} headers={headersDoc} align="left" theme="lightTheme" />
       </>
     );
   });

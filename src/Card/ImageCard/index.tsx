@@ -9,12 +9,12 @@ import styles from './style';
 
 type Props = {
   title: string;
-  style: string;
+  theme?: 'darkTheme' | 'mediumTheme' | 'lightTheme';
   text: string;
   image: string;
 };
 
-export default function ImageCard(props: Props) {
+const ImageCard = (props: Props) => {
   const useStyles = createUseStyles(styles);
   const classes: Record<string, string> = useStyles();
 
@@ -22,10 +22,10 @@ export default function ImageCard(props: Props) {
     alert('Button clicked ! :D');
   };
 
-  const { image, title, text = '', style = 'darkTheme' } = props;
+  const { image, title, text = '', theme = 'darkTheme' } = props;
 
   return (
-    <Card classes={{ root: classes[style] }}>
+    <Card classes={{ root: classes[theme] }}>
       <CardContent>
         <Typography variant="h3">{title}</Typography>
       </CardContent>
@@ -45,4 +45,6 @@ export default function ImageCard(props: Props) {
       </CardActions>
     </Card>
   );
-}
+};
+
+export default ImageCard;

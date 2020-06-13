@@ -3,21 +3,19 @@ import { createUseStyles } from 'react-jss';
 
 import TextField from '@material-ui/core/TextField';
 
-import styles from "./style";
-
+import styles from './style';
 
 type Props = {
-  onChange?: (value: string, isValid: boolean) => any,
-  onError?: (value: string) => any,
-  onSuccess?: (value: string) => any,
-  placeholder?: string,
-  label?: string,
-  style?: string,
-  debounceTime?: number
-}
+  onChange?: (value: string, isValid: boolean) => void;
+  onError?: (value: string) => void;
+  onSuccess?: (value: string) => void;
+  placeholder?: string;
+  label?: string;
+  theme?: 'darkTheme' | 'mediumTheme' | 'lightTheme';
+  debounceTime?: number;
+};
 
-const mailInput = (props: Props) => {
-
+const MailInput = (props: Props) => {
   const useStyles = createUseStyles(styles);
   const classes = useStyles();
 
@@ -28,37 +26,35 @@ const mailInput = (props: Props) => {
   const [err, setErr] = useState(false);
   const [helperText, setHelperText] = useState('');
 
-
   // Get the style from the props
   const {
-    style = 'darkTheme', 
-    label = 'Mail', 
+    theme = 'darkTheme',
+    label = 'Mail',
     placeholder = 'Entrez votre adresse mail',
     onError = () => {},
     onSuccess = () => {},
     onChange = () => {},
-    debounceTime = 250
+    debounceTime = 250,
   } = props;
 
   const onInternalChange = ev => {
-
     let value = ev.target.value;
 
     let isError = !verifRegex.test(value);
 
-    if(isError) {
+    if (isError) {
       onError(value);
-    } else if (value >= ""){
+    } else if (value >= '') {
       onSuccess(value);
     }
 
     onChange(value, !isError);
-    
+
     setErr(isError);
     setHelperText(isError ? defaultErrorText : '');
   };
 
-  const debounce =  (fn: (ev: any) => any) => {
+  const debounce = (fn: (ev: any) => any) => {
     let _timeout;
 
     return ev => {
@@ -78,7 +74,7 @@ const mailInput = (props: Props) => {
   const field = (
     <TextField
       classes={{
-        root: classes[style]
+        root: classes[theme],
       }}
       error={err}
       onChange={debounce(onInternalChange)}
@@ -94,4 +90,4 @@ const mailInput = (props: Props) => {
   return field;
 };
 
-export default mailInput;
+export default MailInput;

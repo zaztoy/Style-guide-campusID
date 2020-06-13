@@ -5,10 +5,10 @@ import styles from './style';
 type Props = {
   children: React.ReactNode;
   setFileData: (fileDataURL: any) => void;
-  image?: boolean;
+  isImage?: boolean;
 };
 
-const InputFile = ({ children, setFileData, image }: Props) => {
+const InputFile = ({ children, setFileData, isImage }: Props) => {
   const classes = styles();
 
   const readFile = (file: Blob): Promise<string> => {
@@ -40,12 +40,12 @@ const InputFile = ({ children, setFileData, image }: Props) => {
       {children}
       <input
         id="avatar-file"
-        accept={image ? 'image/png, image/jpeg, image/jpg' : null}
+        accept={isImage ? 'image/png, image/jpeg, image/jpg' : null}
         data-testid="avatar-input-file"
         name="avatar"
         type="file"
         className={classes.hiddenInputFile}
-        onChange={image ? onImageChange : onFileChange}
+        onChange={isImage ? onImageChange : onFileChange}
         onClick={e => {
           // Reset the value for every click, so we always have a change
           e.currentTarget.value = '';

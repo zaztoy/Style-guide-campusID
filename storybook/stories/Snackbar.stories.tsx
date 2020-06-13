@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '@material-ui/core';
 import Snackbar from '../../src/Snackbar';
+import Table from '../../src/Table';
 
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
@@ -15,7 +16,9 @@ export const SnackbarStory = () => {
   const type = select('Type', ['success', 'warning', 'error', 'info', ''], '');
   const customText = text('CustomText', 'Write something');
   const showCloseButton = boolean('Show close button', false);
+  const autoHide = boolean('Enable auto hide', false);
   const autoHideDuration = select('Auto hide duration', [1000, 2000, 3000, 4000, 5000], 3000);
+
   const handleClick = () => {
     setOpen(!open);
   };
@@ -24,13 +27,15 @@ export const SnackbarStory = () => {
     setOpen(!open);
   };
 
+  const enabledAutoHideDuration = autoHide ? autoHideDuration : null;
+
   return (
     <div>
       <Button variant="outlined" onClick={handleClick}>
         Toggle Snackbar
       </Button>
       <Snackbar
-        autoHideDuration={autoHideDuration}
+        autoHideDuration={enabledAutoHideDuration}
         message={<div>{customText}</div>}
         open={open}
         theme={theme}
@@ -41,3 +46,20 @@ export const SnackbarStory = () => {
     </div>
   );
 };
+
+const rows = [
+  ['theme:', 'darkTheme | mediumTheme | lightTheme'],
+  ['type:', 'success | warning | error | info'],
+  ['position:', 'end | start | top | bottom'],
+  ['message:', 'ReactNode'],
+  ['showCloseButton:', 'boolean'],
+  ['autoHideDuration?:', '1000 | 2000 | 3000 | 4000 | 5000'],
+];
+
+const headers = ['PROPS', 'TYPE'];
+
+export const SnackbarProps = () => (
+  <>
+    <Table rows={rows} headers={headers} align="left" theme="lightTheme" />
+  </>
+);

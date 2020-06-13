@@ -1,20 +1,19 @@
 import React from 'react';
-import styles from './style';
 import { createUseStyles } from 'react-jss';
-import Switch from '@material-ui/core/Switch';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
+import { Switch as MUISwitch, FormGroup, FormControlLabel } from '@material-ui/core';
+
+import styles from './style';
 
 type Props = {
   checked: boolean;
   label: string;
   position: 'end' | 'start' | 'top' | 'bottom';
-  style: string;
-  handleChange: any;
+  color?: 'red' | 'green' | 'blue';
+  onChange: () => void;
 };
 
-const Switches = (props: Props) => {
-  const { checked, label, position, style = 'red' } = props;
+const Switch = (props: Props) => {
+  const { checked, label, position, color = 'red', onChange } = props;
   const useStyles = createUseStyles(styles);
   const classes: Record<string, string> = useStyles();
 
@@ -24,11 +23,12 @@ const Switches = (props: Props) => {
         label={label}
         labelPlacement={position}
         control={
-          <Switch
+          <MUISwitch
             focusVisibleClassName={classes.focusVisible}
             disableRipple
-            classes={{ root: classes[style], switchBase: classes[style] }}
+            classes={{ root: classes[color], switchBase: classes[color] }}
             checked={checked}
+            onChange={onChange}
           />
         }
       />
@@ -36,4 +36,4 @@ const Switches = (props: Props) => {
   );
 };
 
-export default Switches;
+export default Switch;

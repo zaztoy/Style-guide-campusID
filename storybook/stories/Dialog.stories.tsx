@@ -8,8 +8,8 @@ export default {
   decorators: [withKnobs],
 };
 
-export const dialog = () => {
-  const customStyle = ['darkTheme', 'mediumTheme', 'lightTheme'];
+export const DialogStory = () => {
+  const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
 
   const onClose = () => {
     alert('Clooose');
@@ -18,7 +18,7 @@ export const dialog = () => {
   return (
     <Dialog
       title={text('Title', 'CampusID')}
-      customStyle={select('style', customStyle, 'darkTheme')}
+      theme={theme}
       buttonOpen={text("Bouton d'ouverture", 'Ouvrir modal')}
       text1={text('Texte 1', 'You can put some text if you need')}
       text2={text('Texte 2', 'You can put some text if you need')}
@@ -30,22 +30,20 @@ export const dialog = () => {
 };
 
 const rows = [
-  ['title', 'string'],
-  ['customStyle', 'Enum : darkTheme, mediumTheme, lightTheme'],
-  ['buttonOpen', 'string'],
-  ['buttonText', 'string'],
-  ['text1', 'string'],
-  ['text2', 'string'],
-  ['text3', 'string'],
-  ['onClose', 'function'],
+  ['title:', 'string'],
+  ['theme:', 'darkTheme | mediumTheme | lightTheme'],
+  ['buttonOpen:', 'string'],
+  ['buttonText:', 'string'],
+  ['text1:', 'string'],
+  ['text2:', 'string'],
+  ['text3:', 'string'],
+  ['onClose:', '() => void'],
 ];
 
 const headers = ['PROPS', 'TYPE'];
-const align = 'left';
-const style = 'lightTheme';
 
-export const dialogProps = () => (
+export const DialogProps = () => (
   <>
-    <Table rows={rows} headers={headers} align={align} style={style} />
+    <Table rows={rows} headers={headers} align="left" theme="lightTheme" />
   </>
 );

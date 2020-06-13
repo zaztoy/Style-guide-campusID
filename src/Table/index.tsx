@@ -13,11 +13,11 @@ type Props = {
   rows: Array<Array<String>>;
   headers: Array<String>;
   align?: 'left' | 'right';
-  style?: string;
+  theme?: 'darkTheme' | 'mediumTheme' | 'lightTheme';
 };
 
 const CustomTable = (props: Props) => {
-  const { rows = [[]], headers = [], align = 'left', style = 'darkTheme' } = props;
+  const { rows = [[]], headers = [], align = 'left', theme = 'darkTheme' } = props;
 
   const useStyles = createUseStyles(styles);
   const classes = useStyles();
@@ -26,7 +26,7 @@ const CustomTable = (props: Props) => {
     <TableContainer
       component={Paper}
       classes={{
-        root: classes[style],
+        root: classes[theme],
       }}
     >
       <Table aria-label="simple table">

@@ -9,8 +9,8 @@ export default {
   decorators: [withKnobs],
 };
 
-export const imageCard = () => {
-  const styles = ['darkTheme', 'mediumTheme', 'lightTheme'];
+export const ImageCardStory = () => {
+  const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
 
   return (
     <ImageCard
@@ -19,35 +19,33 @@ export const imageCard = () => {
         'http://www.campusid.fr/wp-content/uploads/2018/02/logo-carre-2.png'
       )}
       title={text('Title', 'CampusID')}
-      style={select('Style', styles)}
+      theme={theme}
       text={text('Text', 'You can put some text if you need')}
     />
   );
 };
 
 const rows = [
-  ['image', 'string'],
-  ['title', 'string'],
-  ['style', 'Enum : darkTheme, mediumTheme, lightTheme'],
-  ['text', 'string'],
+  ['image:', 'string'],
+  ['title:', 'string'],
+  ['theme:', 'darkTheme | mediumTheme | lightTheme'],
+  ['text:', 'string'],
 ];
 const headers = ['PROPS', 'TYPE'];
-const align = 'left';
-const style = 'lightTheme';
 
-export const imageCardProps = () => (
+export const ImageCardProps = () => (
   <>
-    <Table rows={rows} headers={headers} align={align} style={style} />
+    <Table rows={rows} headers={headers} align="left" theme="lightTheme" />
   </>
 );
 
-export const simpleCard = () => {
-  const styles = ['darkTheme', 'mediumTheme', 'lightTheme'];
+export const SimpleCardStory = () => {
+  const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
 
   return (
     <SimpleCard
       title={text('Title', 'CampusID')}
-      style={select('style', styles)}
+      theme={theme}
       text={text(
         'Text',
         'Oui alors écoute moi, premièrement, il faut se recréer... pour recréer... a better you et cette officialité peut vraiment retarder ce qui devrait devenir... Et là, vraiment, j essaie de tout coeur de donner la plus belle réponse de la terre ! '
@@ -58,12 +56,12 @@ export const simpleCard = () => {
 
 const rows2 = [
   ['title', 'string'],
-  ['style', 'Enum : darkTheme, mediumTheme, lightTheme'],
+  ['theme', 'darkTheme | mediumTheme | lightTheme'],
   ['text', 'string'],
 ];
 
-export const simpleCardProps = () => (
+export const SimpleCardProps = () => (
   <>
-    <Table rows={rows2} headers={headers} align={align} style={style} />
+    <Table rows={rows2} headers={headers} align="left" theme="lightTheme" />
   </>
 );
