@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Avatar from '../../src/Avatar';
-import InputFile from '../../src/InputFile';
+import Table from '../../src/Table/index';
 
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
@@ -11,11 +11,8 @@ export default {
 
 export const FileUploaderStory = () => {
   const nickname = text('Nickname', 'Bob');
-
   const mode = select('mode', ['responsive', 'large'], 'responsive');
-
   const withImage = boolean('With image ?', true);
-
   const image = text(
     'ImgSrc',
     'https://i.pinimg.com/originals/7b/aa/25/7baa252dbdfeed669c152bedd2fa5feb.jpg'
@@ -23,3 +20,20 @@ export const FileUploaderStory = () => {
 
   return <Avatar src={withImage && image} nickname={nickname} mode={mode} />;
 };
+
+const rows = [
+  ['nickname', 'string'],
+  ['mode', 'Enum : responsive, large'],
+  ['withImage', 'boolean'],
+  ['image', 'string'],
+];
+
+const headers = ['PROPS', 'TYPE'];
+const align = 'left';
+const style = 'lightTheme';
+
+export const typographyProps = () => (
+  <>
+    <Table rows={rows} headers={headers} align={align} style={style} />
+  </>
+);

@@ -1,5 +1,6 @@
 import React from 'react';
 import List from './../../src/List/index';
+import Table from '../../src/Table/index';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 export default {
@@ -22,3 +23,22 @@ export const list = () => {
     />
   );
 };
+
+const rows = [
+  ['title1', 'string'],
+  ['title2', 'string'],
+  ['title3', 'string'],
+  ['title4', 'string'],
+  ['style1', 'Enum : darkTheme, mediumTheme, lightTheme'],
+  ['style2', 'Enum : darkTheme, mediumTheme, lightTheme'],
+];
+
+const headers = ['PROPS', 'TYPE'];
+const align = 'left';
+const style = 'lightTheme';
+
+export const listProps = () => (
+  <>
+    <Table rows={rows} headers={headers} align={align} style={style} />
+  </>
+);

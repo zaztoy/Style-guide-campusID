@@ -2,9 +2,10 @@ import React from 'react';
 import ImageCard from '../../src/Card/ImageCard';
 import SimpleCard from '../../src/Card/SimpleCard';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
+import Table from '../../src/Table/index';
 
 export default {
-  title: 'Card',
+  title: 'Cards Docs',
   decorators: [withKnobs],
 };
 
@@ -18,11 +19,27 @@ export const imageCard = () => {
         'http://www.campusid.fr/wp-content/uploads/2018/02/logo-carre-2.png'
       )}
       title={text('Title', 'CampusID')}
-      style={select('style', styles)}
+      style={select('Style', styles)}
       text={text('Text', 'You can put some text if you need')}
     />
   );
 };
+
+const rows = [
+  ['image', 'string'],
+  ['title', 'string'],
+  ['style', 'Enum : darkTheme, mediumTheme, lightTheme'],
+  ['text', 'string'],
+];
+const headers = ['PROPS', 'TYPE'];
+const align = 'left';
+const style = 'lightTheme';
+
+export const imageCardProps = () => (
+  <>
+    <Table rows={rows} headers={headers} align={align} style={style} />
+  </>
+);
 
 export const simpleCard = () => {
   const styles = ['darkTheme', 'mediumTheme', 'lightTheme'];
@@ -38,3 +55,15 @@ export const simpleCard = () => {
     />
   );
 };
+
+const rows2 = [
+  ['title', 'string'],
+  ['style', 'Enum : darkTheme, mediumTheme, lightTheme'],
+  ['text', 'string'],
+];
+
+export const simpleCardProps = () => (
+  <>
+    <Table rows={rows2} headers={headers} align={align} style={style} />
+  </>
+);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Slider from '../../src/Slider';
-
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import Table from '../../src/Table/index';
+import { withKnobs } from '@storybook/addon-knobs';
 
 export default {
   title: 'Slider',
@@ -47,3 +47,20 @@ export const SliderStory = () => {
     </div>
   );
 };
+
+const rows = [
+  ['onChange', 'function'],
+  ['onChangeRange', 'function'],
+  ['onChangeCustom', 'function'],
+  ['value', 'number|number[]'],
+];
+
+const headers = ['PROPS', 'TYPE'];
+const align = 'left';
+const style = 'lightTheme';
+
+export const progressProps = () => (
+  <>
+    <Table rows={rows} headers={headers} align={align} style={style} />
+  </>
+);

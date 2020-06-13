@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import Switch from '../../src/Switche';
+import Table from '../../src/Table/index';
 
 export default {
   title: 'Switche',
@@ -22,3 +23,20 @@ export const Switche = () => {
     />
   );
 };
+
+const rows = [
+  ['style', 'Enum : darkTheme, mediumTheme, lightTheme'],
+  ['label', 'string'],
+  ['position', 'Enum : end, start, top, bottom'],
+  ['checked', 'boolean'],
+];
+
+const headers = ['PROPS', 'TYPE'];
+const align = 'left';
+const style = 'lightTheme';
+
+export const switchProps = () => (
+  <>
+    <Table rows={rows} headers={headers} align={align} style={style} />
+  </>
+);
