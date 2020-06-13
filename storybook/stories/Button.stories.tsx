@@ -2,13 +2,14 @@ import React from 'react';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import SimpleButton from '../../src/Buttons/Button';
 import GroupButton from '../../src/Buttons/GroupButton';
+import Table from '../../src/Table';
 
 export default {
   title: 'Buttons',
   decorators: [withKnobs],
 };
 
-export const simpleButton = () => {
+export const SimpleButtonStory = () => {
   const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
   const size = select('Size', ['small', 'medium', 'large'], 'medium');
 
@@ -34,7 +35,7 @@ export const simpleButton = () => {
   );
 };
 
-export const groupButton = () => {
+export const GroupButtonStory = () => {
   const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
   const size = select('Size', ['small', 'medium', 'large'], 'medium');
   const variant = select('Variant', ['contained', 'outlined', 'text'], 'contained');
@@ -80,3 +81,21 @@ export const groupButton = () => {
     </GroupButton>
   );
 };
+
+const rows = [
+  ['theme:', 'darkTheme | mediumTheme | lightTheme'],
+  ['children:', 'ReactNode'],
+  ['variant:', 'text | outlined | contained'],
+  ['disabled:', 'boolean'],
+  ['disableRipple:', 'boolean'],
+  ['size:', 'small | medium | large'],
+  ['onClick:', '() => void'],
+];
+
+const headers = ['PROPS', 'TYPE'];
+
+export const ButtonProps = () => (
+  <>
+    <Table rows={rows} headers={headers} align="left" theme="lightTheme" />
+  </>
+);

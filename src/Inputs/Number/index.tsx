@@ -18,7 +18,7 @@ type Props = {
   id?: string;
 };
 
-const numberInput = (props: Props) => {
+const NumberInput = (props: Props) => {
   const {
     onError = () => {},
     onSuccess = () => {},
@@ -38,8 +38,8 @@ const numberInput = (props: Props) => {
   const [inputValue, setInputValue] = useState('');
   const [isValid, setIsValid] = useState(true);
 
-  const onInternalChange = evt => {
-    let newVal = evt.target.value;
+  const onInternalChange = event => {
+    let newVal = event.target.value;
 
     let isValid = true;
 
@@ -99,4 +99,4 @@ const numberInput = (props: Props) => {
   );
 };
 
-export default numberInput;
+export default NumberInput;

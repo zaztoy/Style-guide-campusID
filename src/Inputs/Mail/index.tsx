@@ -6,9 +6,9 @@ import TextField from '@material-ui/core/TextField';
 import styles from './style';
 
 type Props = {
-  onChange?: (value: string, isValid: boolean) => any;
-  onError?: (value: string) => any;
-  onSuccess?: (value: string) => any;
+  onChange?: (value: string, isValid: boolean) => void;
+  onError?: (value: string) => void;
+  onSuccess?: (value: string) => void;
   placeholder?: string;
   label?: string;
   theme?: 'darkTheme' | 'mediumTheme' | 'lightTheme';

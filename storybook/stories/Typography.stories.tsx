@@ -64,9 +64,9 @@ export const TypographyStory = () => {
 };
 
 const rows = [
-  ['color', 'Enum : inherit, primary, secondary, textPrimary, textSecondary, error'],
-  ['align', 'Enum : inherit, left, center, right, justify'],
-  ['variant', 'Enum h1, h2, h3, h4, h5, h6, subtitle1, subtitle2, body1, body2'],
+  ['theme:', 'darkTheme | mediumTheme | lightTheme'],
+  ['align:', 'inherit | left | center | right | justify'],
+  ['variant:', 'h1 | h2 | h3 | h4 | h5 | h6 | subtitle1 | subtitle2 | body1 | body2'],
 ];
 
 const headers = ['PROPS', 'TYPE'];

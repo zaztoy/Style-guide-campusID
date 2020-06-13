@@ -9,7 +9,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const FileUploaderStory = () => {
+export const AvatarStory = () => {
   const nickname = text('Nickname', 'Bob');
   const mode = select('mode', ['responsive', 'large'], 'responsive');
   const withImage = boolean('With image ?', true);
@@ -22,18 +22,16 @@ export const FileUploaderStory = () => {
 };
 
 const rows = [
-  ['nickname', 'string'],
-  ['mode', 'Enum : responsive, large'],
-  ['withImage', 'boolean'],
-  ['image', 'string'],
+  ['nickname:', 'string'],
+  ['mode:', 'responsive | large'],
+  ['withImage:', 'boolean'],
+  ['image:', 'string'],
 ];
 
 const headers = ['PROPS', 'TYPE'];
-const align = 'left';
-const theme = 'lightTheme';
 
-export const typographyProps = () => (
+export const AvatarProps = () => (
   <>
-    <Table rows={rows} headers={headers} align={align} theme={theme} />
+    <Table rows={rows} headers={headers} align="left" theme="lightTheme" />
   </>
 );

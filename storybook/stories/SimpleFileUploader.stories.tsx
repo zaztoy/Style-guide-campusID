@@ -10,68 +10,75 @@ export default {
   decorators: [withKnobs],
 };
 
-export const FileUploaderStory = () => {
+export const SimpleFileUploaderStory = () => {
   const [file, setFile] = useState(null);
 
-  const imageUpload = boolean('Image', false);
+  const isImage = boolean('isImage', false);
+
   const setFileData = (fileData: any) => {
     setFile(fileData);
   };
 
-  return imageUpload ? (
-    <>
-      <InputFile setFileData={setFileData} image>
-        <span
-          style={{
-            backgroundColor: jssGlobals.backgroundColor.darkTheme,
-            fontSize: '1.25em',
-            fontWeight: 700,
-            color: jssGlobals.color.darkTheme,
-            padding: 8,
-            borderRadius: 4,
-          }}
-        >
-          Upload an image
-        </span>
-      </InputFile>
-      <img src={file} width={200} />
-    </>
+  return isImage ? (
+    <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+      <div>
+        <InputFile setFileData={setFileData} isImage>
+          <span
+            style={{
+              backgroundColor: jssGlobals.backgroundColor.darkTheme,
+              fontSize: '1.25em',
+              fontWeight: 700,
+              color: jssGlobals.color.darkTheme,
+              padding: 8,
+              borderRadius: 4,
+            }}
+          >
+            Upload an image
+          </span>
+        </InputFile>
+      </div>
+      <div>
+        <img src={file} width={200} />
+      </div>
+    </div>
   ) : (
-    <>
-      <InputFile setFileData={setFileData}>
-        <span
-          style={{
-            backgroundColor: jssGlobals.backgroundColor.darkTheme,
-            fontSize: '1.25em',
-            fontWeight: 700,
-            color: jssGlobals.color.darkTheme,
-            padding: 8,
-            borderRadius: 4,
-          }}
-        >
-          Upload a file
-        </span>
-      </InputFile>
+    <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+      <div>
+        <InputFile setFileData={setFileData}>
+          <span
+            style={{
+              backgroundColor: jssGlobals.backgroundColor.darkTheme,
+              fontSize: '1.25em',
+              fontWeight: 700,
+              color: jssGlobals.color.darkTheme,
+              padding: 8,
+              borderRadius: 4,
+            }}
+          >
+            Upload a file
+          </span>
+        </InputFile>
+      </div>
       {file && file.size && (
-        <>
+        <div>
           <div>filename : {file && file.name}</div>
           <div>fileSize: {file && `${file.size} octet`}</div>
           <div>fileType: {file && file.type}</div>
-        </>
+        </div>
       )}
-    </>
+    </div>
   );
 };
 
 const rows = [
-  ['setFileData', 'function'],
-  ['image', 'boolean'],
-  ['src', 'fileData'],
+  ['setFileData:', '(file: any) => void'],
+  ['children:', 'ReactNode'],
+  ['isImage:', 'boolean'],
 ];
 
 const headers = ['PROPS', 'TYPE'];
 
-export const fileUploaderStoryProps = () => (
+export const SimpleFileUploaderProps = () => (
   <>
     <Table rows={rows} headers={headers} align="left" theme="lightTheme" />
   </>

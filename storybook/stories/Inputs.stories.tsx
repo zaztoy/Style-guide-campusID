@@ -1,6 +1,7 @@
 import React from 'react';
 import NumberInput from '../../src/Inputs/Number';
 import MailInput from '../../src/Inputs/Mail';
+import Table from '../../src/Table';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, number, boolean } from '@storybook/addon-knobs';
@@ -67,3 +68,41 @@ storiesOf('Inputs', module)
       />
     );
   });
+
+const headers = ['PROPS', 'TYPE'];
+
+const NumberInputRows = [
+  ['id?:', 'string'],
+  ['theme:', 'darkTheme | mediumTheme | lightTheme'],
+  ['label:', 'string'],
+  ['placeholder:', 'string'],
+  ['lowerBound:', 'number'],
+  ['upperBound:', 'number'],
+  ['isInteger:', 'boolean'],
+  ['onSuccess:', '() => void'],
+  ['onError:', '() => void'],
+  ['onChange:', '() => void'],
+  ['debounceTime:', 'number'],
+];
+
+export const NumberInputProps = () => (
+  <>
+    <Table rows={NumberInputRows} headers={headers} align="left" theme="lightTheme" />
+  </>
+);
+
+const mailInputRows = [
+  ['theme:', 'darkTheme | mediumTheme | lightTheme'],
+  ['label:', 'string'],
+  ['placeholder:', 'string'],
+  ['onSuccess:', '(value: string) => void'],
+  ['onError:', '(value: string) => void'],
+  ['onChange:', '(value: string, isValid: boolean) => void'],
+  ['debounceTime:', 'number'],
+];
+
+export const MailInputProps = () => (
+  <>
+    <Table rows={mailInputRows} headers={headers} align="left" theme="lightTheme" />
+  </>
+);

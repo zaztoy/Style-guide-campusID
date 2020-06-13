@@ -9,7 +9,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const imageCard = () => {
+export const ImageCardStory = () => {
   const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
 
   return (
@@ -26,22 +26,20 @@ export const imageCard = () => {
 };
 
 const rows = [
-  ['image', 'string'],
-  ['title', 'string'],
-  ['style', 'Enum : darkTheme, mediumTheme, lightTheme'],
-  ['text', 'string'],
+  ['image:', 'string'],
+  ['title:', 'string'],
+  ['theme:', 'darkTheme | mediumTheme | lightTheme'],
+  ['text:', 'string'],
 ];
 const headers = ['PROPS', 'TYPE'];
-const align = 'left';
-const theme = 'lightTheme';
 
-export const imageCardProps = () => (
+export const ImageCardProps = () => (
   <>
-    <Table rows={rows} headers={headers} align={align} theme={style} />
+    <Table rows={rows} headers={headers} align="left" theme="lightTheme" />
   </>
 );
 
-export const simpleCard = () => {
+export const SimpleCardStory = () => {
   const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
 
   return (
@@ -58,12 +56,12 @@ export const simpleCard = () => {
 
 const rows2 = [
   ['title', 'string'],
-  ['theme', 'Enum : darkTheme, mediumTheme, lightTheme'],
+  ['theme', 'darkTheme | mediumTheme | lightTheme'],
   ['text', 'string'],
 ];
 
-export const simpleCardProps = () => (
+export const SimpleCardProps = () => (
   <>
-    <Table rows={rows2} headers={headers} align={align} theme={theme} />
+    <Table rows={rows2} headers={headers} align="left" theme="lightTheme" />
   </>
 );

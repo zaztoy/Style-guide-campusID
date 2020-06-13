@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '@material-ui/core';
 import Snackbar from '../../src/Snackbar';
+import Table from '../../src/Table';
 
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
@@ -27,6 +28,7 @@ export const SnackbarStory = () => {
   };
 
   const enabledAutoHideDuration = autoHide ? autoHideDuration : null;
+
   return (
     <div>
       <Button variant="outlined" onClick={handleClick}>
@@ -44,3 +46,20 @@ export const SnackbarStory = () => {
     </div>
   );
 };
+
+const rows = [
+  ['theme:', 'darkTheme | mediumTheme | lightTheme'],
+  ['type:', 'success | warning | error | info'],
+  ['position:', 'end | start | top | bottom'],
+  ['message:', 'ReactNode'],
+  ['showCloseButton:', 'boolean'],
+  ['autoHideDuration?:', '1000 | 2000 | 3000 | 4000 | 5000'],
+];
+
+const headers = ['PROPS', 'TYPE'];
+
+export const SnackbarProps = () => (
+  <>
+    <Table rows={rows} headers={headers} align="left" theme="lightTheme" />
+  </>
+);

@@ -9,22 +9,20 @@ export default {
   decorators: [withKnobs],
 };
 
-export const datePicker = () => {
+export const DatePickerStory = () => {
   const theme = select('Theme', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
 
   return <DatePicker label={text('label', 'birthday')} theme={theme} />;
 };
 
 const rows = [
-  ['label', 'string'],
-  ['style', 'Enum : darkTheme, mediumTheme, lightTheme'],
+  ['label:', 'string'],
+  ['theme:', 'darkTheme | mediumTheme | lightTheme'],
 ];
 const headers = ['PROPS', 'TYPE'];
-const align = 'left';
-const style = 'lightTheme';
 
-export const datePickerProps = () => (
+export const DatePickerProps = () => (
   <>
-    <Table rows={rows} headers={headers} align={align} style={style} />
+    <Table rows={rows} headers={headers} align="left" theme="lightTheme" />
   </>
 );

@@ -57,15 +57,13 @@ export const SliderStory = () => {
 };
 
 const rows = [
-  ['onChange', 'function'],
-  ['onChangeRange', 'function'],
-  ['onChangeCustom', 'function'],
-  ['value', 'number|number[]'],
+  ['onChange:', '() => void'],
+  ['value:', 'number | number[]'],
 ];
 
 const headers = ['PROPS', 'TYPE'];
 
-export const progressProps = () => (
+export const SliderProps = () => (
   <>
     <Table rows={rows} headers={headers} align="left" theme="lightTheme" />
   </>

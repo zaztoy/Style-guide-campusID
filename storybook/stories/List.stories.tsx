@@ -8,7 +8,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const list = () => {
+export const ListStory = () => {
   const theme1 = select('style1', ['darkTheme', 'mediumTheme', 'lightTheme'], 'darkTheme');
   const theme2 = select('style2', ['darkTheme', 'mediumTheme', 'lightTheme'], 'lightTheme');
 
@@ -25,20 +25,18 @@ export const list = () => {
 };
 
 const rows = [
-  ['title1', 'string'],
-  ['title2', 'string'],
-  ['title3', 'string'],
-  ['title4', 'string'],
-  ['style1', 'Enum : darkTheme, mediumTheme, lightTheme'],
-  ['style2', 'Enum : darkTheme, mediumTheme, lightTheme'],
+  ['title1:', 'string'],
+  ['title2:', 'string'],
+  ['title3:', 'string'],
+  ['title4:', 'string'],
+  ['style1:', 'darkTheme | mediumTheme | lightTheme'],
+  ['style2:', 'darkTheme | mediumTheme | lightTheme'],
 ];
 
 const headers = ['PROPS', 'TYPE'];
-const align = 'left';
-const style = 'lightTheme';
 
-export const listProps = () => (
+export const ListProps = () => (
   <>
-    <Table rows={rows} headers={headers} align={align} style={style} />
+    <Table rows={rows} headers={headers} align="left" theme="lightTheme" />
   </>
 );
