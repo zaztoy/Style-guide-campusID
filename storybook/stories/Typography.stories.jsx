@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
+import Table from '../../src/Table/index';
 
 export default {
   title: 'Typography',
@@ -9,11 +10,8 @@ export default {
 
 export const TypographyStory = () => {
   const variants = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'subtitle1', 'subtitle2', 'body1', 'body2'];
-
   const aligns = ['inherit', 'left', 'center', 'right', 'justify'];
-
   const colors = ['inherit', 'primary', 'secondary', 'textPrimary', 'textSecondary', 'error'];
-
   const selectedAlign = select('align', aligns, 'selectedAlign');
   const selectedColor = select('color', colors, 'selectedAlign');
 
@@ -61,3 +59,19 @@ export const TypographyStory = () => {
     </div>
   );
 };
+
+const rows = [
+  ['color', 'Enum : inherit, primary, secondary, textPrimary, textSecondary, error'],
+  ['align', 'Enum : inherit, left, center, right, justify'],
+  ['variant', 'Enum h1, h2, h3, h4, h5, h6, subtitle1, subtitle2, body1, body2'],
+];
+
+const headers = ['PROPS', 'TYPE'];
+const align = 'left';
+const style = 'lightTheme';
+
+export const typographyProps = () => (
+  <>
+    <Table rows={rows} headers={headers} align={align} style={style} />
+  </>
+);

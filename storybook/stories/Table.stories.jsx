@@ -37,21 +37,22 @@ storiesOf('Table', module)
         align={select('Alignement des cellules', alignPossibilities)}
       />
     );
+  })
+  .add('Table Props', () => {
+    const rowsDoc = [
+      ['row', 'string[][]'],
+      ['headersDoc', 'string[]'],
+      ['style', 'Enum : darkTheme, mediumTheme, lightTheme'],
+      ['align', 'Enum : right, left'],
+    ];
+
+    const headersDoc = ['PROPS', 'TYPE'];
+    const align = 'left';
+    const style = 'lightTheme';
+
+    return (
+      <>
+        <Table rows={rowsDoc} headers={headersDoc} align={align} style={style} />
+      </>
+    );
   });
-
-const rowsDoc = [
-  ['row', 'string[][]'],
-  ['headersDoc', 'string[]'],
-  ['style', 'Enum : darkTheme, mediumTheme, lightTheme'],
-  ['align', 'Enum : right, left'],
-];
-
-const headersDoc = ['PROPS', 'TYPE'];
-const align = 'left';
-const style = 'lightTheme';
-
-export const progressProps = () => (
-  <>
-    <Table rows={rowsDoc} headers={headersDoc} align={align} style={style} />
-  </>
-);

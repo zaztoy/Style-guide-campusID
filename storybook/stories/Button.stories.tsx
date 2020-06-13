@@ -3,6 +3,7 @@ import { withKnobs, text, select } from '@storybook/addon-knobs';
 import Button from '@material-ui/core/Button';
 import SimpleButton from '../../src/Buttons/Button';
 import GroupButton from '../../src/Buttons/GroupButton';
+import Table from '../../src/Table/index';
 
 export default {
   title: 'Buttons',
@@ -43,6 +44,25 @@ export const simpleButton = () => {
   );
 };
 
+const rows = [
+  ['variant', 'Enum : contained, outlined, text'],
+  ['color', 'Enum : primary, secondary'],
+  ['size', 'Enum : small, medium, large'],
+  ['disable', 'boolean'],
+  ['orientation', 'Enum : vertical, horizontal'],
+  ['onClick', 'function'],
+];
+
+const headers = ['PROPS', 'TYPE'];
+const align = 'left';
+const style = 'lightTheme';
+
+export const buttonProps = () => (
+  <>
+    <Table rows={rows} headers={headers} align={align} style={style} />
+  </>
+);
+
 /**
  * Group button
  */
@@ -73,3 +93,17 @@ export const groupButton = () => {
     </GroupButton>
   );
 };
+
+const rows2 = [
+  ['variant', 'Enum : contained, outlined, text'],
+  ['color', 'Enum : primary, secondary'],
+  ['size', 'Enum : small, medium, large'],
+  ['disable', 'boolean'],
+  ['orientation', 'Enum : vertical, horizontal'],
+];
+
+export const buttonGroupsProps = () => (
+  <>
+    <Table rows={rows2} headers={headers} align={align} style={style} />
+  </>
+);
