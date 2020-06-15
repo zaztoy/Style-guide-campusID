@@ -1,6 +1,6 @@
 {
   "name": "styleguide-campusid",
-  "version": "1.0.0",
+  "version": "1.1.5",
   "main": "lib/index.js",
   "files": [
     "lib"
@@ -11,7 +11,7 @@
     "build-storybook": "build-storybook",
     "start": "start-storybook -p 6006",
     "build": "rm -rf ./lib && tsc",
-    "prepare": "npm build"
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -28,23 +28,26 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@material-ui/pickers": "^3.2.7",
+    "moment": "^2.24.0",
+    "react-jss": "^10.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.25",
+    "classnames": "^2.2.6",
+    "jest": "^24.9.0",
+    "react-docgen-typescript-loader": "^3.6.0",
+    "react-easy-crop": "^3.0.1",
+    "ts-jest": "^24.3.0",
+    "typescript": "^3.7.5",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-preset-react-app": "^9.1.2",
     "@storybook/addon-a11y": "^5.2.4",
     "@storybook/addon-docs": "^5.2.4",
     "@storybook/addon-info": "^5.2.8",
     "@storybook/addon-knobs": "^5.2.4",
     "@storybook/addon-storysource": "^5.2.4",
-    "@types/jest": "^24.0.25",
-    "awesome-typescript-loader": "^5.2.1",
-    "babel-preset-react-app": "^9.1.2",
-    "classnames": "^2.2.6",
-    "jest": "^24.9.0",
-    "moment": "^2.24.0",
-    "react-docgen-typescript-loader": "^3.6.0",
-    "react-easy-crop": "^3.0.1",
-    "react-jss": "^10.0.0",
-    "ts-jest": "^24.3.0"
-  },
-  "devDependencies": {
     "@babel/core": "^7.6.4",
     "@storybook/addon-actions": "^5.2.4",
     "@storybook/addon-backgrounds": "^5.2.4",
@@ -60,11 +63,8 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-react-hooks": "^1.7.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "typescript": "^3.9.5"
+    "eslint-plugin-react-hooks": "^1.7.0"
   },
   "description": "",
-  "typescript": "^3.9.5"
+  "typescript": "^3.7.5"
 }

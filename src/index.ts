@@ -1,4 +1,4 @@
-export * from '@material-ui/core';
+export const MUI = require('@material-ui/core');;
 
 export { default as Avatar } from './Avatar';
 export { default as Button } from './Buttons/Button';
@@ -14,4 +14,5 @@ export { default as Progress } from './Progress';
 export { default as Slider } from './Slider';
 export { default as Snackbar } from './Snackbar';
 export { default as Switch } from './Switch';
+export { default as Table} from './Table';
 export { default as Theme } from './Theme/jssGlobals';
