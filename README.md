@@ -1,6 +1,20 @@
 # Style-guide-campusID
 
-If you wanna use our package for you're project :
+
+If you want to work on this project, once you have cloned the repository:
+
+1 - Execute `npm install` to retrieve the dependencies
+
+2 - Execute `npm run storybook` to launch the project on localhost:6006
+
+3 - Your changes in the code will be applied automatically in your web browser.
+
+
+All components are in the `./src/` folder; To showcase your component in Storybook, a story must added in `./storybook/stories/`.
+
+
+
+If you want to use our package for you're project :
 
 
 1 - You have to download node.
