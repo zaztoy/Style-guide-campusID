@@ -30,7 +30,6 @@ jssGlobals.breakpoints = {
     xl: 1920,
   },
 };
-6;
 
 jssGlobals.breakpoints.media = {
   xsMax: `@media (max-width: ${jssGlobals.breakpoints.values.xs - 1}px)`,

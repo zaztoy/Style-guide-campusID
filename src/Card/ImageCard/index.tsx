@@ -31,7 +31,7 @@ const ImageCard = (props: Props) => {
       </CardContent>
 
       <div className={classes.imgContainer}>
-        <img src={image}></img>
+        <img src={image} alt={title} />
       </div>
 
       <hr className={classes.hrStyle} />

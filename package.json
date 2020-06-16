@@ -29,9 +29,10 @@
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@material-ui/pickers": "^3.2.7",
     "moment": "^2.24.0",
-    "react-jss": "^10.0.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-jss": "^10.0.0",
+    "react-scripts": "^3.4.1"
   },
   "devDependencies": {
     "@types/jest": "^24.0.25",
